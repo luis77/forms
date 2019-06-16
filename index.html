@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/themes/blitzer/jquery-ui.css" rel="stylesheet" type="text/css"/>
+
+  <script src="js/jquery.validate.js"></script>
+  <script src="js/additional-methods.js"></script>
+
+
+  <script>
+  $( function() {
+    $( "#fecha" ).datepicker();
+  } );
+
+
+  $().ready(function() {
+    // validate the comment form when it is submitted
+
+    // validate signup form on keyup and submit
+    $("#form").validate({
+      rules: {
+        primer_nombre: {
+          required: true,
+          minlength: 2
+        },
+        segundo_nombre: {
+          required: true,
+          minlength: 2
+        }
+      }
+    });
+
+
+
+  });
+
+
+
+
+  </script>
+
+
+    <title>Formulario</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <form class="form" id="form" method="get" action="">
+        <div class="row">
+          <div class="col-xs-12 ">
+            <nav>
+              <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">INFORMACIÓN DEL AFILIADO</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">INFORMACIÓN PROFESIONAL Y LABORAL</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">REFERENCIAS DEL AFILIADO</a>
+              </div>
+            </nav>
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" style="margin: 1px 10px 0px;">
+
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label for="inputNombre1">Primer Nombre:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputNombre2">Segundo Nombre:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label for="inputApellido1">Primer Apellido:</label>
+                    <input type="text" class="form-control" id="inputApellido1" >
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputApellido2">Segundo Apellido:</label>
+                    <input type="text" class="form-control" id="inputApellido2" >
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="fecha">Fecha de nacimiento:</label>
+                    <input type="text" class="form-control" id="fecha" >
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputLugarNacimiento">Lugar de nacimiento:</label>
+                    <input type="text" class="form-control" id="inputLugarNacimiento" >
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label>Tipo de identificación:</label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosID" id="gridRadios1" value="option1" checked>
+                      <label class="form-check-label" for="gridRadios1">
+                        Identidad
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosID" id="gridRadios2" value="option2">
+                      <label class="form-check-label" for="gridRadios2">
+                        Carné de referencia
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosID" id="gridRadios3" value="option3">
+                      <label class="form-check-label" for="gridRadios3">
+                        Pasaporte
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosID" id="gridRadios4" value="option3">
+                      <label class="form-check-label" for="gridRadios4">
+                        Partida de nacimiento
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosID" id="gridRadios5" value="option3">
+                      <label class="form-check-label" for="gridRadios5">
+                        RTN Numérico
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputNidentificacion">No. de identificación:</label>
+                    <input type="text" class="form-control" id="inputNidentificacion" >
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label>Genero:</label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosGenero" id="gridGenero" value="option1" checked>
+                      <label class="form-check-label" for="gridGenero">
+                        Masculino
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosGenero" id="gridGenero" value="option2">
+                      <label class="form-check-label" for="gridGenero">
+                        Femenino
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="inputNidentificacion">Nacionalidad:</label>
+                      <select class="custom-select" required>
+                        <option value="">Por favor selecciona</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputProfesion">Profesión/Ocupación/Oficio:</label>
+                      <select class="custom-select" required>
+                        <option value="">Por favor selecciona</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputTelefonoF">Teléfono fijo:</label>
+                    <input type="text" class="form-control" id="inputTelefonoF" >
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputCelular">Celular:</label>
+                    <input type="text" class="form-control" id="inputCelular" >
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="inputCorreo">Correo electrónico personal:</label>
+                    <input type="email" class="form-control" id="inputCorreo">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputProfesion">Dirección de domicilio, colonia/ barrio /aldea:</label>
+                    <input type="text" class="form-control" id="inputProfesion" >
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputTelefonoF">Calle / Avenida:</label>
+                    <input type="text" class="form-control" id="inputTelefonoF" >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputProfesion">No. de casa:</label>
+                    <input type="text" class="form-control" id="inputProfesion" >
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputTelefonoF">Punto de referencia:</label>
+                    <input type="text" class="form-control" id="inputTelefonoF" >
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputMunicipio">Municipio:</label>
+                      <select class="custom-select" required>
+                        <option value="">Por favor selecciona</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputDepartamento">Departamento:</label>
+                    <input type="text" class="form-control" id="inputDepartamento" >
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputPais">País:</label>
+                      <select class="custom-select" required>
+                        <option value="">Por favor selecciona</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label>Estado civil:</label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosEstadoCivil" id="gridSoltero" value="option1" checked>
+                      <label class="form-check-label" for="gridSoltero">
+                        Soltero
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosEstadoCivil" id="gridCasado" value="option2">
+                      <label class="form-check-label" for="gridCasado">
+                        Casado
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosEstadoCivil" id="gridUnionLibre" value="option2">
+                      <label class="form-check-label" for="gridUnionLibre">
+                        Union libre
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputNombreConyugue">Nombre del cónyugue:</label>
+                    <input type="text" class="form-control" id="inputNombreConyugue" >
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputTlfConyugye">Teléfono fijo:</label>
+                    <input type="text" class="form-control" id="inputTlfConyugye" >
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputConyugueCelular">Celudar:</label>
+                    <input type="text" class="form-control" id="inputConyugueCelular" >
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputFnacimientoConyugue">Fecha de nacimiento:</label>
+                    <input type="text" class="form-control" id="inputFnacimientoConyugue" >
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputLugarNacimientoConyugue">Lugar de nacimiento:</label>
+                    <input type="text" class="form-control" id="inputLugarNacimientoConyugue" >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label>Tipo de identificación:</label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridTipoIdConyugue" id="gridRadios1" value="option1" checked>
+                      <label class="form-check-label" for="gridRadios1">
+                        Identidad
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridTipoIdConyugue" id="gridRadios2" value="option2">
+                      <label class="form-check-label" for="gridRadios2">
+                        Carné de referencia
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridTipoIdConyugue" id="gridRadios3" value="option3">
+                      <label class="form-check-label" for="gridRadios3">
+                        Pasaporte
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridTipoIdConyugue" id="gridRadios4" value="option3">
+                      <label class="form-check-label" for="gridRadios4">
+                        Partida de nacimiento
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridTipoIdConyugue" id="gridRadios5" value="option3">
+                      <label class="form-check-label" for="gridRadios5">
+                        RTN Numérico
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputNidentificacion">No. de identificación:</label>
+                    <input type="text" class="form-control" id="inputNidentificacion" >
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-7">
+                    <label for="inputNombreConyugue">Empresa donde trabaja el cónyugue:</label>
+                    <input type="text" class="form-control" id="inputNombreConyugue" >
+                  </div>
+                </div>
+
+
+                <div class="text-center">
+                  <button type="submit" class="btn btn-secondary">Guardar</button>
+                </div>
+
+              </div>
+              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" style="margin: 1px 10px 0px;">
+
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label>Tipo de empresa:</label>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosTipoEmpresa" id="grid_Eprivada" value="option1" checked>
+                      <label class="form-check-label" for="grid_Eprivada">
+                        Empresa privada
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosTipoEmpresa" id="gridEpublica" value="option2">
+                      <label class="form-check-label" for="gridEpublica">
+                        Empresa pública
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosTipoEmpresa" id="gridONG" value="option2">
+                      <label class="form-check-label" for="gridONG">
+                        ONG
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label>Tipo de empleado:</label>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosTipoEmpleado" id="grid_ProfesionalIndependiente" value="option1" checked>
+                      <label class="form-check-label" for="grid_ProfesionalIndependiente">
+                        Profesional independiente
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosTipoEmpleado" id="gridPropietario" value="option2">
+                      <label class="form-check-label" for="gridPropietario">
+                        Propietario
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosTipoEmpleado" id="gridComercianteIndividual" value="option2">
+                      <label class="form-check-label" for="gridComercianteIndividual">
+                        Comerciante indivibidual
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosTipoEmpleado" id="gridAsalariado" value="option2">
+                      <label class="form-check-label" for="gridAsalariado">
+                        Asalariado
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-7">
+                    <label for="inputNombreEmpresaLabora">Nombre de la empresa en la que labora:</label>
+                    <input type="text" class="form-control" id="inputNombreEmpresaLabora" >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="Fecha_ingreso">Fecha de ingreso:</label>
+                    <input type="text" class="form-control" id="Fecha_ingreso" >
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="Años_laborando">Años laborando:</label>
+                    <input type="text" class="form-control" id="Años_laborando" >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="Cargo_actual">Cargo actual:</label>
+                    <input type="text" class="form-control" id="Cargo_actual" >
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="tlf_empresa">Teléfono de la empresa:</label>
+                    <input type="text" class="form-control" id="tlf_empresa" >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-7">
+                    <label for="Correo_empresa">Correo Electrónico de la empresa:</label>
+                    <input type="text" class="form-control" id="Correo_empresa" >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="Direccion_empresa">Dirección de la empresa:</label>
+                    <input type="text" class="form-control" id="Direccion_empresa" >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="Ciudad">Ciudad:</label>
+                      <select class="custom-select" required>
+                        <option value="">Por favor selecciona</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="Municipio">Municipio:</label>
+                      <select class="custom-select" required>
+                        <option value="">Por favor selecciona</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="Departamento">Departamento:</label>
+                    <input type="text" class="form-control" id="Departamento" >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-7">
+                    <label for="NombreGerente">Nombre del gerente/Jefe de recursos humanos:</label>
+                    <input type="text" class="form-control" id="NombreGerente" >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="Ingreso_mensual">Ingreso Mensual:</label>
+                    <input type="text" class="form-control" id="Ingreso_mensual" >
+                  </div>
+                <div class="form-group col-md-6">
+                    <label for="Origen_Fondos">Origen o procedencia de los fondos:</label>
+                    <input type="text" class="form-control" id="Origen_Fondos" >
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-5">
+                    <label>Rango de salario devengado en salarios minimos:</label>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="Rango_Salarios" id="rango_s1" value="option1" checked>
+                      <label class="form-check-label" for="rango_s1">
+                        L O - L 8,500.00
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="Rango_Salarios" id="rango_s2" value="option2">
+                      <label class="form-check-label" for="rango_s2">
+                        L 8,501.00 - L 26,500.00
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="Rango_Salarios" id="rango_s3" value="option2">
+                      <label class="form-check-label" for="rango_s3">
+                        L 26,501.00 - L 54,000.00
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="Rango_Salarios" id="rango_s4" value="option2">
+                      <label class="form-check-label" for="rango_s4">
+                        L 54,001.00 - L 108,000.00
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="Rango_Salarios" id="rango_s5" value="option2">
+                      <label class="form-check-label" for="rango_s5">
+                        L 108,001.00 - L 150,000.00
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="Rango_Salarios" id="rango_s6" value="option2">
+                      <label class="form-check-label" for="rango_s6">
+                        L 150,001.00 - L 200,000.00
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="Rango_Salarios" id="rango_s7" value="option2">
+                      <label class="form-check-label" for="rango_s7">
+                        L 200,501 en adelante
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label>¿Usted o algún pariente cercano cumplen o han cumplido funciones públicas o políticas destacadas ya sea en el territorio nacional o en el extranjero?</label>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="Rango_Salarios" id="funciones_publicas" value="option1" checked>
+                      <label class="form-check-label" for="funciones_publicas">
+                        Sí
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="Rango_Salarios" id="funciones_publicas" value="option2">
+                      <label class="form-check-label" for="funciones_publicas">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-7">
+                    <label>*En caso de contestar Sí contestar formulario <strong>PEP</strong> </label>
+                   </div>
+                </div>
+
+
+              </div>
+              <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" style="margin: 1px 10px 0px;">
+                <h3>REFERENCIAS PERSONALES</h3>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="Referencia_personal1">Referencia personal 1:</label>
+                    <input type="text" class="form-control" id="Referencia_personal1" >
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="TelefonoFijoRP1">Teléfono Fijo:</label>
+                    <input type="text" class="form-control" id="TelefonoFijoRP1" >
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="CelularRP1">Celular:</label>
+                    <input type="text" class="form-control" id="CelularRP1" >
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="Referencia_personal2">Referencia personal 2:</label>
+                    <input type="text" class="form-control" id="Referencia_personal2" >
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="TelefonoFijoRP2">Teléfono Fijo:</label>
+                    <input type="text" class="form-control" id="TelefonoFijoRP2" >
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="CelularRP2">Celular:</label>
+                    <input type="text" class="form-control" id="CelularRP2" >
+                  </div>
+                </div>
+                <h3>REFERENCIAS COMERCIALES/BANCARIAS</h3>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="Referencia_personal1">Referencia 1:</label>
+                    <input type="text" class="form-control" id="Referencia_personal1" >
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="TelefonoFijoRP1">Teléfono 1:</label>
+                    <input type="text" class="form-control" id="TelefonoFijoRP1" >
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="CelularRP1">Teléfono 2:</label>
+                    <input type="text" class="form-control" id="CelularRP1" >
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="Referencia_personal2">Referencia 2:</label>
+                    <input type="text" class="form-control" id="Referencia_personal2" >
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="TelefonoFijoRP2">Teléfono 1:</label>
+                    <input type="text" class="form-control" id="TelefonoFijoRP2" >
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="CelularRP2">Teléfono 2:</label>
+                    <input type="text" class="form-control" id="CelularRP2" >
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+
+
+
+
+<style type="text/css">
+    /*jquery validate*/
+  form.cmxform label.error, label.error {
+    /* remove the next line when you have trouble in IE6 with labels in list */
+    color: red;
+    font-style: italic
+  }
+  /*jquery validate*/
+
+nav > .nav.nav-tabs{
+
+  border: none;
+    color:#fff;
+    background:#272e38;
+    border-radius:0;
+
+}
+nav > div a.nav-item.nav-link,
+nav > div a.nav-item.nav-link.active
+{
+  border: none;
+    padding: 18px 25px;
+    color:#fff;
+    background:#2e3f57;
+    border-radius:0;
+}
+
+nav > div a.nav-item.nav-link.active:after
+ {
+  content: "";
+  position: relative;
+  bottom: -60px;
+  left: -10%;
+  border: 15px solid transparent;
+  border-top-color: #e74c3c ;
+}
+.tab-content{
+  background: #fdfdfd;
+    line-height: 25px;
+    border: 1px solid #ddd;
+    border-top:5px solid #e74c3c;
+    border-bottom:5px solid #e74c3c;
+    padding:30px 25px;
+}
+
+nav > div a.nav-item.nav-link:hover,
+nav > div a.nav-item.nav-link:focus
+{
+  border: none;
+    background: #ff4000;
+    color:#fff;
+    border-radius:0;
+    transition:background 0.20s linear;
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
