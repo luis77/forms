@@ -19,11 +19,13 @@
 
   <script src="js/jquery.validate.js"></script>
   <script src="js/additional-methods.js"></script>
+  <script src="js/mustache.js"></script>
+  <script src="js/selects.js"></script>
 
 
   <script>
   $( function() {
-    $( "#fecha" ).datepicker();
+    $( ".fecha" ).datepicker();
   } );
 
 
@@ -36,10 +38,6 @@
         primer_nombre: {
           required: true,
           minlength: 2
-        },
-        segundo_nombre: {
-          required: true,
-          minlength: 2
         }
       }
     });
@@ -48,12 +46,7 @@
 
   });
 
-
-
-
   </script>
-
-
     <title>Formulario</title>
   </head>
   <body>
@@ -71,11 +64,21 @@
             </nav>
             <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
               <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" style="margin: 1px 10px 0px;">
-
+                <hr/><p class="centrado"><strong>Hoja de Afiliación</strong><hr/><p>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="HojaAfiliacion">Hoja de Afiliación (NUMERO DE FORMULARIO):</label>
+                    <input type="text" class="form-control" name="HojaAfiliacion"  maxlength="10" required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="Fecha_Afiliación">Fecha de Afiliación:</label>
+                    <input type="text" class="form-control fecha" name="Fecha_Afiliación" maxlength="10" required >
+                  </div>
+                </div>
                 <div class="form-row">
                   <div class="form-group col-md-3">
                     <label for="inputNombre1">Primer Nombre:</label>
-                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre">
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
                   </div>
                   <div class="form-group col-md-3">
                     <label for="inputNombre2">Segundo Nombre:</label>
@@ -84,52 +87,85 @@
 
                   <div class="form-group col-md-3">
                     <label for="inputApellido1">Primer Apellido:</label>
-                    <input type="text" class="form-control" id="inputApellido1" >
+                    <input type="text" class="form-control" id="inputApellido1" required>
                   </div>
                   <div class="form-group col-md-3">
                     <label for="inputApellido2">Segundo Apellido:</label>
                     <input type="text" class="form-control" id="inputApellido2" >
                   </div>
                 </div>
-
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputTipoidentificacion">Tipo de identificación:</label>
+                    <select class="custom-select" name="tipo_id" required>
+                      <option value="">Por favor selecciona</option>
+                      <option value="Identidad">Identidad</option>
+                      <option value="Carné de recidencia">Carné de recidencia</option>
+                      <option value="Pasaporte">Pasaporte</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputNidentificacion">No. de identificación:</label>
+                    <input type="text" class="form-control" id="inputNidentificacion" name="NIdentificacion" maxlength="50" required>
+                  </div>
+                </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="fecha">Fecha de nacimiento:</label>
-                    <input type="text" class="form-control" id="fecha" >
+                    <input type="text" class="form-control fecha" name="fecha_nacimiento" maxlength="10" required>
                   </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputLugarNacimiento">Lugar de nacimiento:</label>
-                    <input type="text" class="form-control" id="inputLugarNacimiento" >
-                  </div>
-                </div>
-
-                <div class="form-row">
-
-                  <div class="form-group col-md-6">
-                    <label for="inputTipoidentificacion">Tipo de identificación:</label>
-                    <select class="custom-select" required>
+   	              <div class="form-group col-md-6">
+                    <label for="inputNacionalidad">Nacionalidad:</label>
+                    <select class="custom-select" required name="nacionalidad">
                       <option value="">Por favor selecciona</option>
-                      <option value="1">Identidad</option>
-                      <option value="2">Carné de referencia</option>
-                      <option value="3">Pasaporte</option>
-                      <option value="4">Partida de nacimiento</option>
-                      <option value="5">RTN Numérico</option>
+                      <option value="El Salvador">El Salvador</option>
+                      <option value="Estados Unidos">Estados Unidos</option>
+                      <option value="Honduras">Honduras</option>
+                      <option value="México">México</option>
                     </select>
                   </div>
+                </div>
+                <hr/><p class="centrado"><strong>Lugar de nacimiento</strong><hr/><p>
 
+
+
+
+                <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="inputNidentificacion">No. de identificación:</label>
-                    <input type="text" class="form-control" id="inputNidentificacion" >
+                    <label for="inputPais">País:</label>
+                    <select class="custom-select" name="IDA_Pais" id="IDA_Pais" required>
+                      <option value="">Por favor selecciona</option>
+                      <option value="El Salvador">El Salvador</option>
+                      <option value="Estados Unidos">Estados Unidos</option>
+                      <option value="Honduras">Honduras</option>
+                      <option value="México">México</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputDepartamento">Departamento:</label>
+                    <select class="custom-select" name="IDA_Departamento" id="IDA_Departamento" required>
+                    </select>
                   </div>
                 </div>
-
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputMunicipio">Municipio:</label>
+                    <select class="custom-select" name="IDA_Municipio" id="IDA_Municipio" required>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputDepartamento">Ciudad:</label>
+                    <select class="custom-select" id="IDA_Ciudad" name="IDA_Departamento">
+                    </select>
+                  </div>
+                </div>
                 <div class="form-row">
                   <div class="form-group col-md-2">
                     <label>Genero:</label>
                   </div>
                   <div class="col-md-2">
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadiosGenero" id="gridGeneroM" value="option1" checked>
+                      <input class="form-check-input" type="radio" name="gridRadiosGenero" id="gridGeneroM" value="option1" checked required>
                       <label class="form-check-label" for="gridGeneroM">
                         Masculino
                       </label>
@@ -137,32 +173,32 @@
                   </div>
                   <div class="col-md-2">
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadiosGenero" id="gridGeneroF" value="option2">
+                      <input class="form-check-input" type="radio" name="gridRadiosGenero" id="gridGeneroF" value="option2" required>
                       <label class="form-check-label" for="gridGeneroF">
                         Femenino
                       </label>
                     </div>
                   </div>
-
                   <div class="form-group col-md-6">
-                    <label for="inputNidentificacion">Nacionalidad:</label>
-                    <select class="custom-select" required>
+                    <label for="inputNacionalidad">Nacionalidad:</label>
+                    <select class="custom-select" required name="nacionalidad">
                       <option value="">Por favor selecciona</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                      <option value="El Salvador">El Salvador</option>
+                      <option value="Estados Unidos">Estados Unidos</option>
+                      <option value="Honduras">Honduras</option>
+                      <option value="México">México</option>
                     </select>
                   </div>
                 </div>
-
                 <div class="form-row">
                   <div class="form-group col-md-4">
                     <label for="inputProfesion">Profesión/Ocupación/Oficio:</label>
-                      <select class="custom-select" required>
+                      <select class="custom-select" name ="profesionasd" required>
                         <option value="">Por favor selecciona</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="Gerente de Banco">Gerente de Banco</option>
+                        <option value="Director Empresa Publicidad">Director Empresa Publicidad</option>
+                        <option value="Desarrollador de Sistemas">Desarrollador de Sistemas</option>
+                        <option value="Maestro">Maestro</option>
                       </select>
                   </div>
                   <div class="form-group col-md-4">
@@ -181,11 +217,55 @@
                     <input type="email" class="form-control" id="inputCorreo">
                   </div>
                 </div>
-
+                <hr/><p class="centrado"><strong>Dirección domicilio</strong><hr/><p>
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="inputProfesion">Dirección de domicilio, colonia/ barrio /aldea:</label>
-                    <input type="text" class="form-control" id="inputProfesion" >
+                    <label for="inputPais">País:</label>
+                    <select class="custom-select" name="DD_Pais" required>
+                      <option value="">Por favor selecciona</option>
+                      <option value="El Salvador">El Salvador</option>
+                      <option value="Estados Unidos">Estados Unidos</option>
+                      <option value="Honduras">Honduras</option>
+                      <option value="México">México</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputDepartamento">Departamento:</label>
+                    <select class="custom-select" name="DD_Departamento" required>
+                      <option value="">Por favor selecciona</option>
+                      <option value="San Salvador">San Salvador</option>
+                      <option value="Florida">Florida</option>
+                      <option value="Francisco Morazán">Francisco Morazán</option>
+                      <option value="Distrito Federal">Distrito Federal</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputMunicipio">Municipio:</label>
+                    <select class="custom-select" name="DD_Municipio" required>
+                      <option value="">Por favor selecciona</option>
+                      <option value="San Salvador">San Salvador</option>
+                      <option value="Miami-Dade">Miami-Dade</option>
+                      <option value="Distrito Central">Distrito Central</option>
+                      <option value="Distrito Federal">Distrito Federal</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputDepartamento">Ciudad:</label>
+                    <select class="custom-select" name="DD_Departamento">
+                      <option value="">Por favor selecciona</option>
+                      <option value="San Salvador">San Salvador</option>
+                      <option value="Miami">Miami</option>
+                      <option value="Tegucigalpa">Tegucigalpa</option>
+                      <option value="Ciudad de México">Ciudad de México</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputDir_Domicilio">Dirección de domicilio, colonia/ barrio /aldea:</label>
+                    <input type="text" class="form-control" id="inputDir_Domicilio" >
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputTelefonoF">Calle / Avenida:</label>
@@ -194,8 +274,8 @@
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="inputProfesion">No. de casa:</label>
-                    <input type="text" class="form-control" id="inputProfesion" >
+                    <label for="inputPNumCasa">No. de casa/edificio/apto:</label>
+                    <input type="text" class="form-control" id="inputNumCasa" >
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputTelefonoF">Punto de referencia:</label>
@@ -206,25 +286,33 @@
                 <div class="form-row">
                   <div class="form-group col-md-4">
                     <label for="inputMunicipio">Municipio:</label>
-                      <select class="custom-select" required>
+                      <select class="custom-select" name="IDA_Municipio" required>
                         <option value="">Por favor selecciona</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="San Salvador">San Salvador</option>
+                        <option value="Miami-Dade">Miami-Dade</option>
+                        <option value="Distrito Central">Distrito Central</option>
+                        <option value="Distrito Federal">Distrito Federal</option>
                       </select>
                   </div>
                   <div class="form-group col-md-4">
                     <label for="inputDepartamento">Departamento:</label>
-                    <input type="text" class="form-control" id="inputDepartamento" >
+                    <select class="custom-select" name="IDA_Departamento" required>
+                      <option value="">Por favor selecciona</option>
+                      <option value="San Salvador">San Salvador</option>
+                      <option value="Florida">Florida</option>
+                      <option value="Francisco Morazán">Francisco Morazán</option>
+                      <option value="Distrito Federal">Distrito Federal</option>
+                    </select>
                   </div>
                   <div class="form-group col-md-3">
                     <label for="inputPais">País:</label>
-                      <select class="custom-select" required>
-                        <option value="">Por favor selecciona</option>
-                        <option value="1">El Salvador</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
+                    <select class="custom-select" name="IDA_Pais" required>
+                      <option value="">Por favor selecciona</option>
+                      <option value="El Salvador">El Salvador</option>
+                      <option value="Estados Unidos">Estados Unidos</option>
+                      <option value="Honduras">Honduras</option>
+                      <option value="México">México</option>
+                    </select>
                   </div>
                 </div>
 
@@ -257,64 +345,179 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="form-row">
                   <div class="form-group col-md-4">
-                    <label for="inputNombreConyugue">Nombre del cónyugue:</label>
-                    <input type="text" class="form-control" id="inputNombreConyugue" >
+                    <label for="DD_Estudios">Nivel de estudios:</label>
+                    <select class="custom-select" name="DD_Estudios" required>
+                      <option value="">Por favor selecciona</option>
+                      <option value="Universidad">Universidad</option>
+                      <option value="Secundaria">Secundaria</option>
+                      <option value="Primaria">Primaria</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="DD_Dependientes">Cantidad dependientes:</label>
+                    <input type="number" class="form-control" id="DD_Dependientes" name="DD_Dependientes" maxlength="3" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="DD_Cant_hijos">Cantidad de hijos:</label>
+                    <input type="number" class="form-control" id="DD_Cant_hijos" name="DD_Cant_hijos" maxlength="3" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-2">
+                    <label>Tipo vivienda:</label>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="DD_tip_vivienda" id="DD_propia" value="Propia" checked>
+                      <label class="form-check-label" for="DD_propia">
+                        Propia
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="DD_tip_vivienda" id="DD_alq" value="Alquilada">
+                      <label class="form-check-label" for="DD_alq">
+                        Alquilada
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label>Posee terreno:</label>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="DD_Pos_terr" id="DD_terr_si" value="Si" checked>
+                      <label class="form-check-label" for="DD_terr_si">
+                        Sí
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="DD_Pos_terr" id="DD_terr_no" value="No">
+                      <label class="form-check-label" for="DD_terr_no">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <hr/><p class="centrado"><strong>Datos personales del cónyugue</strong><hr/><p>
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label for="inputNombre1_Conyugue">Primer Nombre:</label>
+                    <input type="text" class="form-control" id="inputNombre1_Conyugue" name="primer_nombre_Conyugue" required>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputNombre2_Conyugue">Segundo Nombre:</label>
+                    <input type="text" class="form-control" id="inputNombre2_Conyugue" name="segundo_nombre_Conyugue">
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label for="inputApellido1_Conyugue">Primer Apellido:</label>
+                    <input type="text" class="form-control" id="inputApellido1_Conyugue" name="primer_apellido_Conyugue" required>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputApellido2_Conyugue">Segundo Apellido:</label>
+                    <input type="text" class="form-control" id="inputApellido2_Conyugue" name="segundo_apellido_Conyugue">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-1">
+                    <label>Genero:</label>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosGenero_C" id="gridGeneroM_C" value="M" checked required>
+                      <label class="form-check-label" for="gridGeneroM_C">
+                        Masculino
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadiosGenero_C" id="gridGeneroF_C" value="F" required>
+                      <label class="form-check-label" for="gridGeneroF_C">
+                        Femenino
+                      </label>
+                    </div>
                   </div>
                   <div class="form-group col-md-4">
                     <label for="inputTlfConyugye">Teléfono fijo:</label>
-                    <input type="text" class="form-control" id="inputTlfConyugye" >
+                    <input type="text" class="form-control" id="inputTlfConyugye" maxlength="15" >
                   </div>
                   <div class="form-group col-md-3">
-                    <label for="inputConyugueCelular">Celudar:</label>
-                    <input type="text" class="form-control" id="inputConyugueCelular" >
+                    <label for="inputConyugueCelular">Celular:</label>
+                    <input type="text" class="form-control" id="inputConyugueCelular" maxlength="15">
                   </div>
                 </div>
 
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputFnacimientoConyugue">Fecha de nacimiento:</label>
-                    <input type="text" class="form-control" id="inputFnacimientoConyugue" >
+                    <input type="text" class="form-control fecha" maxlength="10" name="FN_Conyugue" id="inputFnacimientoConyugue" >
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputLugarNacimientoConyugue">Lugar de nacimiento:</label>
-                    <input type="text" class="form-control" id="inputLugarNacimientoConyugue" >
+                    <input type="text" class="form-control" name="LN_Conyugue" maxlength="100" id="inputLugarNacimientoConyugue" >
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputTipoidentificacionC">Tipo de identificación:</label>
-                    <select class="custom-select" required>
+                    <select class="custom-select" name="C_TID" required>
                       <option value="">Por favor selecciona</option>
-                      <option value="1">Identidad</option>
-                      <option value="2">Carné de referencia</option>
-                      <option value="3">Pasaporte</option>
-                      <option value="4">Partida de nacimiento</option>
-                      <option value="5">RTN Numérico</option>
+                      <option value="Identidad">Identidad</option>
+                      <option value="Carné de referencia">Carné de referencia</option>
+                      <option value="Pasaporte">Pasaporte</option>
+                      <option value="Partida de nacimiento">Partida de nacimiento</option>
+                      <option value="RTN Numérico">RTN Numérico</option>
                     </select>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputNidentificacion">No. de identificación:</label>
-                    <input type="text" class="form-control" id="inputNidentificacion" >
+                    <input type="text" class="form-control" name="N_ID_C" maxlength="50" id="inputNidentificacion" >
                   </div>
                 </div>
-
+                <hr/><p class="centrado"><strong>Datos laborales del cónyugue</strong><hr/><p>
                 <div class="form-row">
-                  <div class="form-group col-md-7">
-                    <label for="inputNombreConyugue">Empresa donde trabaja el cónyugue:</label>
-                    <input type="text" class="form-control" id="inputNombreConyugue" >
+                  <div class="form-group col-md-6">
+                    <label for="EmpresaLaboraConyugue">Empresa donde trabaja el cónyugue:</label>
+                    <input type="text" class="form-control" maxlength="100" name="EmpresaLaboraConyugue" >
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="IngresoConyugue">Ingreso mensual:</label>
+                    <input type="number" class="form-control" maxlength="20" name="IngresoConyugue">
                   </div>
                 </div>
-
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="GiroEmpresaConyugue">Giro de la empresa donde labora:</label>
+                    <input type="text" class="form-control" maxlength="30" name="GiroEmpresaConyugue" >
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="CargoAConyugue">Cargo actual:</label>
+                    <input type="text" class="form-control" maxlength="100" name="CargoAConyugue">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="TlfTC">Nro. Teléfono del trabajo:</label>
+                    <input type="text" class="form-control" name="TlfTC" maxlength="15" >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="DirTrabConyugue">Dirección del trabajo:</label>
+                    <textarea class="form-control" name="DirTrabConyugue" maxlength="225"></textarea>
+                  </div>
+                </div>
                 <div class="text-center">
                   <button type="submit" class="btn btn-secondary">Guardar</button>
                 </div>
-
               </div>
               <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" style="margin: 1px 10px 0px;">
-
                 <div class="form-row">
                   <div class="form-group col-md-3">
                     <label>Tipo de empresa:</label>
@@ -344,7 +547,6 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="form-row">
                   <div class="form-group col-md-3">
                     <label>Tipo de empleado:</label>
@@ -369,7 +571,7 @@
                     <div class="form-check">
                       <input class="form-check-input" type="radio" name="gridRadiosTipoEmpleado" id="gridComercianteIndividual" value="option2">
                       <label class="form-check-label" for="gridComercianteIndividual">
-                        Comerciante indivibidual
+                        Comerciante individual
                       </label>
                     </div>
                   </div>
@@ -377,21 +579,26 @@
                     <div class="form-check">
                       <input class="form-check-input" type="radio" name="gridRadiosTipoEmpleado" id="gridAsalariado" value="option2">
                       <label class="form-check-label" for="gridAsalariado">
-                        Asalariado
+                        Asalariado / Empleado
                       </label>
                     </div>
                   </div>
                 </div>
+                <hr/><p class="centrado"><strong>Datos de la empresa</strong><hr/><p>
                 <div class="form-row">
-                  <div class="form-group col-md-7">
+                  <div class="form-group col-md-6">
                     <label for="inputNombreEmpresaLabora">Nombre de la empresa en la que labora:</label>
-                    <input type="text" class="form-control" id="inputNombreEmpresaLabora" >
+                    <input type="text" class="form-control" name="E_nombre" id="inputNombreEmpresaLabora" maxlength="255" required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputNombreEmpresaLabora">RTN:</label>
+                    <input type="number" class="form-control" name="E_nombre" id="inputNombreEmpresaLabora" maxlength="16">
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="Fecha_ingreso">Fecha de ingreso:</label>
-                    <input type="text" class="form-control" id="Fecha_ingreso" >
+                    <input type="text" class="form-control" id="Fecha_ingreso" maxlength="10" name="E_FI" required>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="Años_laborando">Años laborando:</label>
@@ -401,17 +608,17 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="Cargo_actual">Cargo actual:</label>
-                    <input type="text" class="form-control" id="Cargo_actual" >
+                    <input type="text" class="form-control" id="Cargo_actual" name="E_CA" required>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="tlf_empresa">Teléfono de la empresa:</label>
-                    <input type="text" class="form-control" id="tlf_empresa" >
+                    <input type="text" class="form-control" id="tlf_empresa" name="Tlf_empresa" maxlength="15">
                   </div>
                 </div>
                 <div class="form-row">
-                  <div class="form-group col-md-7">
+                  <div class="form-group col-md-6">
                     <label for="Correo_empresa">Correo Electrónico de la empresa:</label>
-                    <input type="text" class="form-control" id="Correo_empresa" >
+                    <input type="text" class="form-control" maxlength="100" name="Correo_empresa" >
                   </div>
                 </div>
                 <div class="form-row">
@@ -421,27 +628,47 @@
                   </div>
                 </div>
                 <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="Ciudad">Ciudad:</label>
-                      <select class="custom-select" required>
-                        <option value="">Por favor selecciona</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
+                  <div class="form-group col-md-6">
+                    <label for="Municipio">País:</label>
+                    <select class="custom-select" name="IPL_Pais" required>
+                      <option value="">Por favor selecciona</option>
+                      <option value="El Salvador">El Salvador</option>
+                      <option value="Estados Unidos">Estados Unidos</option>
+                      <option value="Honduras">Honduras</option>
+                      <option value="México">México</option>
+                    </select>
                   </div>
-                  <div class="form-group col-md-4">
-                    <label for="Municipio">Municipio:</label>
-                      <select class="custom-select" required>
-                        <option value="">Por favor selecciona</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                  </div>
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-6">
                     <label for="Departamento">Departamento:</label>
-                    <input type="text" class="form-control" id="Departamento" >
+                    <select class="custom-select" name="IPL_Departamento" required>
+                      <option value="">Por favor selecciona</option>
+                      <option value="San Salvador">San Salvador</option>
+                      <option value="Florida">Florida</option>
+                      <option value="Francisco Morazán">Francisco Morazán</option>
+                      <option value="Distrito Federal">Distrito Federal</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="Municipio">Municipio:</label>
+                    <select class="custom-select" name="IPL_Municipio" required>
+                      <option value="">Por favor selecciona</option>
+                      <option value="San Salvador">San Salvador</option>
+                      <option value="Miami-Dade">Miami-Dade</option>
+                      <option value="Distrito Central">Distrito Central</option>
+                      <option value="Distrito Federal Central">Distrito Federal Central</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="Ciudad">Ciudad:</label>
+                    <select class="custom-select" name="IPL_Ciudad">
+                      <option value="">Por favor selecciona</option>
+                      <option value="San Salvador">San Salvador</option>
+                      <option value="Miami">Miami</option>
+                      <option value="Tegucigalpa">Tegucigalpa</option>
+                      <option value="Ciudad de México">Ciudad de México</option>
+                    </select>
                   </div>
                 </div>
                 <div class="form-row">
@@ -453,7 +680,7 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="Ingreso_mensual">Ingreso Mensual:</label>
-                    <input type="text" class="form-control" id="Ingreso_mensual" >
+                    <input type="number" class="form-control" id="Ingreso_mensual" maxlength="20" required >
                   </div>
                 <div class="form-group col-md-6">
                     <label for="Origen_Fondos">Origen o procedencia de los fondos:</label>
@@ -551,41 +778,126 @@
                     <label>*En caso de contestar Sí contestar formulario <strong>PEP</strong> </label>
                    </div>
                 </div>
-
-
+                <hr/><p class="centrado"><strong>Funciones políticas PEP</strong><hr/><p>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="FPPEP">funciones públicas s/n PEP:</label>
+                    <input type="text" class="form-control" name="FPPEP" >
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="CargoPEP">Cargo:</label>
+                    <input type="text" class="form-control" name="CargoPEP" >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="MesPEP">Mes:</label>
+                    <input type="text" class="form-control" name="MesPEP" >
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="AñoPEP">Año:</label>
+                    <input type="text" class="form-control" name="AñoPEP" >
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="PaisPEP">País:</label>
+                    <input type="text" class="form-control" name="PaisPEP" >
+                  </div>
+                </div>
               </div>
               <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" style="margin: 1px 10px 0px;">
-                <h3>REFERENCIAS PERSONALES</h3>
+                <hr/><p class="centrado"><strong>REFERENCIAS PERSONALES</strong><hr/><p>
+                <p><strong>REFERENCIA 1</strong><hr/><p>
                 <div class="form-row">
                   <div class="form-group col-md-4">
-                    <label for="Referencia_personal1">Referencia personal 1:</label>
-                    <input type="text" class="form-control" id="Referencia_personal1" >
+                    <label for="RF_ID">Numero de identificación:</label>
+                    <input type="text" class="form-control" name="RF_ID" >
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="TelefonoFijoRP1">Teléfono Fijo:</label>
-                    <input type="text" class="form-control" id="TelefonoFijoRP1" >
+                    <label for="RF_TLF">Teléfono Fijo:</label>
+                    <input type="text" class="form-control" name="RF_TLF" >
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="CelularRP1">Celular:</label>
-                    <input type="text" class="form-control" id="CelularRP1" >
+                    <label for="RF_CEL">Celular:</label>
+                    <input type="text" class="form-control" name="RF_CEL" >
                   </div>
                 </div>
 
                 <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="Referencia_personal2">Referencia personal 2:</label>
-                    <input type="text" class="form-control" id="Referencia_personal2" >
+                  <div class="form-group col-md-3">
+                    <label for="RF_Nombre1">Primer Nombre:</label>
+                    <input type="text" class="form-control" id="RF_Nombre1" name="RF_Nombre1" required>
                   </div>
-                  <div class="form-group col-md-4">
-                    <label for="TelefonoFijoRP2">Teléfono Fijo:</label>
-                    <input type="text" class="form-control" id="TelefonoFijoRP2" >
+                  <div class="form-group col-md-3">
+                    <label for="RF_Nombre2">Segundo Nombre:</label>
+                    <input type="text" class="form-control" id="RF_Nombre2" name="RF_Nombre2">
                   </div>
-                  <div class="form-group col-md-4">
-                    <label for="CelularRP2">Celular:</label>
-                    <input type="text" class="form-control" id="CelularRP2" >
+
+                  <div class="form-group col-md-3">
+                    <label for="RF_Apellido1">Primer Apellido:</label>
+                    <input type="text" class="form-control" id="RF_Apellido1" name="RF_Apellido1" required>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="RF_Apellido2">Segundo Apellido:</label>
+                    <input type="text" class="form-control" id="RF_Apellido2" name="RF_Apellido2">
                   </div>
                 </div>
-                <h3>REFERENCIAS COMERCIALES/BANCARIAS</h3>
+
+                <p><strong>REFERENCIA 2</strong><hr/><p>
+				<div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="RF_ID">Numero de identificación:</label>
+                    <input type="text" class="form-control" name="RF_ID" >
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="RF_TLF">Teléfono Fijo:</label>
+                    <input type="text" class="form-control" name="RF_TLF" >
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="RF_CEL">Celular:</label>
+                    <input type="text" class="form-control" name="RF_CEL" >
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label for="RF_Nombre1">Primer Nombre:</label>
+                    <input type="text" class="form-control" id="RF_Nombre1" name="RF_Nombre1" required>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="RF_Nombre2">Segundo Nombre:</label>
+                    <input type="text" class="form-control" id="RF_Nombre2" name="RF_Nombre2">
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label for="RF_Apellido1">Primer Apellido:</label>
+                    <input type="text" class="form-control" id="RF_Apellido1" name="RF_Apellido1" required>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="RF_Apellido2">Segundo Apellido:</label>
+                    <input type="text" class="form-control" id="RF_Apellido2" name="RF_Apellido2">
+                  </div>
+                </div>
+             
+	              <button type="button" class="btn btn-success btn-xs" onclick="nueva_referencia()">
+	               Añadir referencias
+	              </button>
+
+				<div id="adicionales"></div>
+
+
+			    <script type="text/javascript">
+			       function nueva_referencia() {
+			       	var template = $("#tutorial-template").html();
+					// html: '<div ...>\n<h1 ...>{{title }}<h1>\n</div>'
+					var html = Mustache.render(template);
+
+					$("#adicionales").append(html);
+			      }
+			    </script>
+
+
+
+                <hr/><p class="centrado"><strong>REFERENCIAS COMERCIALES/BANCARIAS</strong><hr/><p>
                 <div class="form-row">
                   <div class="form-group col-md-4">
                     <label for="Referencia_personal1">Referencia 1:</label>
@@ -622,6 +934,21 @@
         </div>
       </form>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -683,6 +1010,18 @@ nav > div a.nav-item.nav-link:focus
     transition:background 0.20s linear;
 }
 
+
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.centrado{
+	text-align: center;
+}
 </style>
 
 
