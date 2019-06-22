@@ -19,7 +19,7 @@
 
   <script src="js/jquery.validate.js"></script>
   <script src="js/additional-methods.js"></script>
-  <script src="js/mustache.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.js"></script>
   <script src="js/selects.js"></script>
 
 
@@ -126,10 +126,6 @@
                   </div>
                 </div>
                 <hr/><p class="centrado"><strong>Lugar de nacimiento</strong><hr/><p>
-
-
-
-
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputPais">País:</label>
@@ -806,94 +802,108 @@
               </div>
               <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" style="margin: 1px 10px 0px;">
                 <hr/><p class="centrado"><strong>REFERENCIAS PERSONALES</strong><hr/><p>
-                <p><strong>REFERENCIA 1</strong><hr/><p>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="RF_ID">Numero de identificación:</label>
-                    <input type="text" class="form-control" name="RF_ID" >
+                <div id="referencia1">
+                  <hr/><p><strong>REFERENCIA 1</strong><hr/><p>
+                  <div class="form-row" id="datosxx">
+                    <div class="form-group col-md-4">
+                      <label for="RF1_ID">Número de identificación:</label>
+                      <input type="text" class="form-control" name="RF1_ID" id="RF1_ID" >
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="RF1_TLF">Teléfono Fijo:</label>
+                      <input type="text" class="form-control" name="RF1_TLF" id="RF1_TLF" >
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="RF1_CEL">Celular:</label>
+                      <input type="text" class="form-control" name="RF1_CEL" id="RF1_CEL" >
+                    </div>
                   </div>
-                  <div class="form-group col-md-4">
-                    <label for="RF_TLF">Teléfono Fijo:</label>
-                    <input type="text" class="form-control" name="RF_TLF" >
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="RF_CEL">Celular:</label>
-                    <input type="text" class="form-control" name="RF_CEL" >
+
+                  <div class="form-row">
+                    <div class="form-group col-md-3">
+                      <label for="RF1_PNombre">Primer Nombre:</label>
+                      <input type="text" class="form-control" id="RF1_PNombre" name="RF1_PNombre" required>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="RF1_PNombre">Segundo Nombre:</label>
+                      <input type="text" class="form-control" id="RF1_PNombre" name="RF1_PNombre">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                      <label for="RF1_PApellido">Primer Apellido:</label>
+                      <input type="text" class="form-control" id="RF1_PApellido" name="RF1_PApellido" required>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="RF1_SApellido">Segundo Apellido:</label>
+                      <input type="text" class="form-control" id="RF1_SApellido" name="RF1_SApellido">
+                    </div>
                   </div>
                 </div>
+                <div id="referencia2">
+                  <hr/><p><strong>REFERENCIA 2</strong><hr/><p>
+  				        <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="RF2_ID">Numero de identificación:</label>
+                      <input type="text" class="form-control" name="RF2_ID" id="RF2_ID" >
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="RF2_TLF">Teléfono Fijo:</label>
+                      <input type="text" class="form-control" name="RF2_TLF" id="RF2_TLF" >
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="RF2_CEL">Celular:</label>
+                      <input type="text" class="form-control" name="RF2_CEL" id="RF2_CEL" >
+                    </div>
+                  </div>
 
-                <div class="form-row">
-                  <div class="form-group col-md-3">
-                    <label for="RF_Nombre1">Primer Nombre:</label>
-                    <input type="text" class="form-control" id="RF_Nombre1" name="RF_Nombre1" required>
-                  </div>
-                  <div class="form-group col-md-3">
-                    <label for="RF_Nombre2">Segundo Nombre:</label>
-                    <input type="text" class="form-control" id="RF_Nombre2" name="RF_Nombre2">
-                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-3">
+                      <label for="RF2_PNombre">Primer Nombre:</label>
+                      <input type="text" class="form-control" id="RF2_PNombre" name="RF2_PNombre" required>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="RF2_SNombre">Segundo Nombre:</label>
+                      <input type="text" class="form-control" id="RF2_SNombre" name="RF2_SNombre">
+                    </div>
 
-                  <div class="form-group col-md-3">
-                    <label for="RF_Apellido1">Primer Apellido:</label>
-                    <input type="text" class="form-control" id="RF_Apellido1" name="RF_Apellido1" required>
-                  </div>
-                  <div class="form-group col-md-3">
-                    <label for="RF_Apellido2">Segundo Apellido:</label>
-                    <input type="text" class="form-control" id="RF_Apellido2" name="RF_Apellido2">
+                    <div class="form-group col-md-3">
+                      <label for="RF2_PApellido">Primer Apellido:</label>
+                      <input type="text" class="form-control" id="RF2_PApellido" name="RF2_PApellido" required>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="RF2_SApellido">Segundo Apellido:</label>
+                      <input type="text" class="form-control" id="RF2_SApellido" name="RF2_SApellido">
+                    </div>
                   </div>
                 </div>
-
-                <p><strong>REFERENCIA 2</strong><hr/><p>
-				<div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="RF_ID">Numero de identificación:</label>
-                    <input type="text" class="form-control" name="RF_ID" >
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="RF_TLF">Teléfono Fijo:</label>
-                    <input type="text" class="form-control" name="RF_TLF" >
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="RF_CEL">Celular:</label>
-                    <input type="text" class="form-control" name="RF_CEL" >
-                  </div>
-                </div>
-
-                <div class="form-row">
-                  <div class="form-group col-md-3">
-                    <label for="RF_Nombre1">Primer Nombre:</label>
-                    <input type="text" class="form-control" id="RF_Nombre1" name="RF_Nombre1" required>
-                  </div>
-                  <div class="form-group col-md-3">
-                    <label for="RF_Nombre2">Segundo Nombre:</label>
-                    <input type="text" class="form-control" id="RF_Nombre2" name="RF_Nombre2">
-                  </div>
-
-                  <div class="form-group col-md-3">
-                    <label for="RF_Apellido1">Primer Apellido:</label>
-                    <input type="text" class="form-control" id="RF_Apellido1" name="RF_Apellido1" required>
-                  </div>
-                  <div class="form-group col-md-3">
-                    <label for="RF_Apellido2">Segundo Apellido:</label>
-                    <input type="text" class="form-control" id="RF_Apellido2" name="RF_Apellido2">
-                  </div>
-                </div>
-             
+               
 	              <button type="button" class="btn btn-success btn-xs" onclick="nueva_referencia()">
 	               Añadir referencias
 	              </button>
 
-				<div id="adicionales"></div>
+        				<div id="adicionales"></div>
 
 
-			    <script type="text/javascript">
-			       function nueva_referencia() {
-			       	var template = $("#tutorial-template").html();
-					// html: '<div ...>\n<h1 ...>{{title }}<h1>\n</div>'
-					var html = Mustache.render(template);
 
-					$("#adicionales").append(html);
-			      }
-			    </script>
+  <script type="text/javascript">
+    var orden=3;
+
+    function nueva_referencia() {
+      var template = $("#referencia1").html();
+      var html = Mustache.render(template);
+
+      var y = document.createElement("DIV");
+      y.setAttribute("id", `adicional_${orden}`);
+
+      document.getElementById('adicionales').appendChild(y);
+      $(`#adicional_${orden}`).append(html);
+
+
+$("#adicional_"+orden + " #RF_ID").attr({"id": "horse"});
+
+    }
+  </script>
+
 
 
 
