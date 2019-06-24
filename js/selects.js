@@ -241,24 +241,25 @@ $('input[type=radio][name=funciones_publicas]').change(function() {
 	}
 });
 
-$('#B1_P').change(function() {
+$('.B_P').change(function() {
+	var id_select = $(this).attr("id");
+
     if ($(this).val() == "Hijo") {
-		var year_age = calculo_edad("#B1_FN");
-		alert(year_age);
+		var year_age = calculo_edad("#FN_"+id_select);
 		
 		if (year_age < 18){
-			x = document.getElementsByClassName('TutorXMenor1');
+			x = document.getElementsByClassName('TutorXMenor_'+id_select);
 			for (var i = 0; i < x.length; i++) { 
 	  			x[i].required = true;
 			}
 		}else if(year_age > 17){
-			x = document.getElementsByClassName('TutorXMenor1');
+			x = document.getElementsByClassName('TutorXMenor_'+id_select);
 			for (var i = 0; i < x.length; i++) { 
 	  			x[i].required = false;
 			}
 		}
-
 	}
+
 });
 
 
