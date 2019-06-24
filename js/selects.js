@@ -41,7 +41,7 @@ var M_DistritoFederal = [
 
 
 //If parent option is changed
-$("#IDA_Pais, #DD_Pais").change(function() {
+$("#IDA_Pais, #DD_Pais, #IPL_Pais").change(function() {
 	var campo_select = event.target.id; //get option value from parent 
 
 	var parent = $(this).val(); //get option value from parent 
@@ -63,6 +63,8 @@ $("#IDA_Pais, #DD_Pais").change(function() {
 			$("#IDA_Departamento").html('');	 
 		}else if (campo_select == "DD_Pais"){
 			$("#DD_Departamento").html('');	 
+		}else if (campo_select == "IPL_Pais"){
+			$("#IPL_Departamento").html('');	 
 		}
 		break;
 	}
@@ -85,11 +87,18 @@ function listP(array_list, campo_select)
 			$("#DD_Departamento").append("<option>Por favor seleccione</option>");
 			$("#DD_Departamento").append("<option value=\""+array_list[i].value+"\" class=\"DD_elemento_hijo\">"+array_list[i].display+"</option>");
 		});
+	}else if (campo_select == "IPL_Pais"){
+		$(".IPL_elemento_hijo").remove();
+		$("#IPL_Departamento").html(""); //reset child options
+		$(array_list).each(function (i) { //populate child options 
+			$("#IPL_Departamento").append("<option>Por favor seleccione</option>");
+			$("#IPL_Departamento").append("<option value=\""+array_list[i].value+"\" class=\"IPL_elemento_hijo\">"+array_list[i].display+"</option>");
+		});
 	}
 }
 //**************Departamento******************
 //If parent option is changed
-$("#IDA_Departamento, #DD_Departamento").change(function() {
+$("#IDA_Departamento, #DD_Departamento, #IPL_Departamento").change(function() {
 	var parentD = $(this).val(); //get option value from parent 
 	var campo_select = event.target.id; //get option value from parent 
 	
@@ -111,6 +120,8 @@ $("#IDA_Departamento, #DD_Departamento").change(function() {
 			$("#IDA_Municipio").html('');	 
 		}else if (campo_select == "DD_Departamento"){
 			$("#DD_Municipio").html('');	 
+		}else if (campo_select == "IPL_Departamento"){
+			$("#IPL_Municipio").html('');	 
 		}
 		break;
 	}
@@ -131,12 +142,18 @@ function listD(array_listD, campo_select)
 			$("#DD_Municipio").append("<option>Por favor seleccione</option>");
 			$("#DD_Municipio").append("<option value=\""+array_listD[i].value+"\" class=\"DD_elemento_hijo\">"+array_listD[i].display+"</option>");
 		});
+	}else if (campo_select == "IPL_Departamento"){
+	$("#IPL_Municipio").html(""); //reset child options
+	$(array_listD).each(function (i) { //populate child options 
+		$("#IPL_Municipio").append("<option>Por favor seleccione</option>");
+		$("#IPL_Municipio").append("<option value=\""+array_listD[i].value+"\" class=\"IPL_elemento_hijo\">"+array_listD[i].display+"</option>");
+	});
 	}
 }
 
 //**************Ciudad******************
 //If parent option is changed
-$("#IDA_Municipio, #DD_Municipio").change(function() {
+$("#IDA_Municipio, #DD_Municipio, #IPL_Municipio").change(function() {
 	var parentM = $(this).val(); //get option value from parent 
 	var campo_select = event.target.id; //get option value from parent 
 
@@ -158,6 +175,8 @@ $("#IDA_Municipio, #DD_Municipio").change(function() {
 			$("#IDA_Ciudad").html('');	 
 		}else if (campo_select == "DD_Municipio"){
 			$("#DD_Ciudad").html('');	 
+		}else if (campo_select == "IPL_Municipio"){
+			$("#IPL_Ciudad").html('');	 
 		}
 		break;
 	}
@@ -182,7 +201,30 @@ function listM(array_listM, campo_select)
 			$("#DD_Ciudad").append("<option>Por favor seleccione</option>");
 			$("#DD_Ciudad").append("<option value=\""+array_listM[i].value+"\" class=\"DD_elemento_hijo\">"+array_listM[i].display+"</option>");
 		});
+	}else if (campo_select == "IPL_Municipio"){
+		$("#IPL_Ciudad").html(""); //reset child options
+		$(array_listM).each(function (i) { //populate child options 
+			$("#IPL_Ciudad").append("<option>Por favor seleccione</option>");
+			$("#IPL_Ciudad").append("<option value=\""+array_listM[i].value+"\" class=\"IPL_elemento_hijo\">"+array_listM[i].display+"</option>");
+		});
 	}	
-
 }
+
+
+
+$('input[type=radio][name=DD_EdoC]').change(function() {
+    if ($(this).val() == "C" || $(this).val() == "UL") {
+		x = document.getElementsByClassName('Dependiente_C');
+		for (var i = 0; i < x.length; i++) { 
+	  		x[i].required = true;
+		}
+	}
+});
+
+
+
+
+
+
+
 });
