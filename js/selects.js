@@ -211,15 +211,93 @@ function listM(array_listM, campo_select)
 }
 
 
-
+///////////////////////////////////////////////////////
 $('input[type=radio][name=DD_EdoC]').change(function() {
+	x = document.getElementsByClassName('Dependiente_C');
+  
     if ($(this).val() == "C" || $(this).val() == "UL") {
-		x = document.getElementsByClassName('Dependiente_C');
 		for (var i = 0; i < x.length; i++) { 
 	  		x[i].required = true;
 		}
+	}else if ($(this).val() == "S"){
+		for (var i = 0; i < x.length; i++) { 
+	  		x[i].required = false;
+		}
 	}
 });
+
+
+$('input[type=radio][name=funciones_publicas]').change(function() {
+	x = document.getElementsByClassName('Dependiente_PEP');
+  
+    if ($(this).val() == "S") {
+		for (var i = 0; i < x.length; i++) { 
+	  		x[i].required = true;
+		}
+	}else if ($(this).val() == "N"){
+		for (var i = 0; i < x.length; i++) { 
+	  		x[i].required = false;
+		}
+	}
+});
+
+$('#B1_P').change(function() {
+    if ($(this).val() == "Hijo") {
+		var year_age = calculo_edad("#B1_FN");
+		alert(year_age);
+		
+		if (year_age < 18){
+			x = document.getElementsByClassName('TutorXMenor1');
+			for (var i = 0; i < x.length; i++) { 
+	  			x[i].required = true;
+			}
+		}else if(year_age > 17){
+			x = document.getElementsByClassName('TutorXMenor1');
+			for (var i = 0; i < x.length; i++) { 
+	  			x[i].required = false;
+			}
+		}
+
+	}
+});
+
+
+
+function calculo_edad(campo_id){
+    var mdate = $(campo_id).val().toString();
+    var yearThen = parseInt(mdate.substring(0,4), 10);
+    var monthThen = parseInt(mdate.substring(5,7), 10);
+    var dayThen = parseInt(mdate.substring(8,10), 10);
+    
+    var today = new Date();
+    var birthday = new Date(yearThen, monthThen-1, dayThen);
+    
+    var differenceInMilisecond = today.valueOf() - birthday.valueOf();
+    
+    var year_age = Math.floor(differenceInMilisecond / 31536000000);
+    
+    
+    if (isNaN(year_age)) {
+        alert("Formato fecha invalida");
+    }
+
+    return year_age;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

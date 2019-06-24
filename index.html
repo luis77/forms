@@ -25,7 +25,10 @@
 
   <script>
   $( function() {
-    $( ".fecha" ).datepicker();
+    $(".fecha").datepicker({
+      format: "dd/mm/yyyy",
+      autoclose: true   
+    });
   } );
 
 
@@ -72,7 +75,7 @@
                   </div>
                   <div class="form-group col-md-6">
                     <label for="Fecha_Afiliación">Fecha de Afiliación:</label>
-                    <input type="text" class="form-control fecha" name="Fecha_Afiliación" maxlength="10" required >
+                    <input type="date" class="form-control" id="Fecha_Afiliación" name="Fecha_Afiliación" required>
                   </div>
                 </div>
                 <div class="form-row">
@@ -112,7 +115,7 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="fecha">Fecha de nacimiento:</label>
-                    <input type="text" class="form-control fecha" name="fecha_nacimiento" maxlength="10" required>
+                    <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
                   </div>
    	              <div class="form-group col-md-6">
                     <label for="inputNacionalidad">Nacionalidad:</label>
@@ -407,7 +410,7 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputFnacimientoConyugue">Fecha de nacimiento:</label>
-                    <input type="text" class="form-control fecha Dependiente_C" maxlength="10" name="FN_Conyugue" id="inputFnacimientoConyugue" >
+                    <input type="date" class="form-control Dependiente_C" id="FN_Conyugue" name="FN_Conyugue">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputLugarNacimientoConyugue">Lugar de nacimiento:</label>
@@ -461,9 +464,6 @@
                     <label for="DirTrabConyugue">Dirección del trabajo:</label>
                     <textarea class="form-control Dependiente_C" name="DirTrabConyugue" maxlength="225"></textarea>
                   </div>
-                </div>
-                <div class="text-center">
-                  <button type="submit" class="btn btn-secondary">Guardar</button>
                 </div>
               </div>
               <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" style="margin: 1px 10px 0px;">
@@ -548,11 +548,11 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="Fecha_ingreso">Fecha de ingreso:</label>
-                    <input type="text" class="form-control" id="Fecha_ingreso" maxlength="10" name="E_FI" required>
+                    <input type="date" class="form-control" id="Fecha_ingreso" name="E_FI" required>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="Años_laborando">Años laborando:</label>
-                    <input type="text" class="form-control" id="Años_laborando" >
+                    <input type="text" class="form-control" name="Años_laborando" id="Años_laborando" >
                   </div>
                 </div>
                 <div class="form-row">
@@ -574,7 +574,7 @@
                 <div class="form-row">
                   <div class="form-group col-md-12">
                     <label for="Direccion_empresa">Dirección de la empresa:</label>
-                    <input type="text" class="form-control" id="Direccion_empresa" >
+                    <input type="text" class="form-control" name="Direccion_empresa" id="Direccion_empresa" >
                   </div>
                 </div>
                 <div class="form-row">
@@ -606,17 +606,17 @@
                 <div class="form-row">
                   <div class="form-group col-md-7">
                     <label for="NombreGerente">Nombre del gerente/Jefe de recursos humanos:</label>
-                    <input type="text" class="form-control" id="NombreGerente" >
+                    <input type="text" class="form-control" name="NombreGerente" id="NombreGerente" >
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="Ingreso_mensual">Ingreso Mensual:</label>
-                    <input type="number" class="form-control" id="Ingreso_mensual" maxlength="20" required >
+                    <input type="number" class="form-control" id="Ingreso_mensual" name="Ingreso_mensual" maxlength="20" required >
                   </div>
                 <div class="form-group col-md-6">
                     <label for="Origen_Fondos">Origen o procedencia de los fondos:</label>
-                    <input type="text" class="form-control" id="Origen_Fondos" >
+                    <input type="text" class="form-control" name="Origen_Fondos" id="Origen_Fondos" >
                   </div>
                 </div>
 
@@ -692,7 +692,7 @@
                 <div class="form-row">
                   <div class="col-md-2">
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="Rango_Salarios" id="funciones_publicas" value="option1" checked>
+                      <input class="form-check-input" type="radio" name="funciones_publicas" id="funciones_publicas_S" value="S" checked>
                       <label class="form-check-label" for="funciones_publicas">
                         Sí
                       </label>
@@ -700,7 +700,7 @@
                   </div>
                   <div class="col-md-2">
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="Rango_Salarios" id="funciones_publicas" value="option2">
+                      <input class="form-check-input" type="radio" name="funciones_publicas" id="funciones_publicas_N" value="N">
                       <label class="form-check-label" for="funciones_publicas">
                         No
                       </label>
@@ -714,25 +714,25 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="FPPEP">funciones públicas s/n PEP:</label>
-                    <input type="text" class="form-control" name="FPPEP" >
+                    <input type="text" class="form-control Dependiente_PEP" name="FPPEP" >
                   </div>
                   <div class="form-group col-md-6">
                     <label for="CargoPEP">Cargo:</label>
-                    <input type="text" class="form-control" name="CargoPEP" >
+                    <input type="text" class="form-control Dependiente_PEP" name="CargoPEP" >
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-4">
                     <label for="MesPEP">Mes:</label>
-                    <input type="text" class="form-control" name="MesPEP" >
+                    <input type="text" class="form-control Dependiente_PEP" name="MesPEP" >
                   </div>
                   <div class="form-group col-md-4">
                     <label for="AñoPEP">Año:</label>
-                    <input type="text" class="form-control" name="AñoPEP" >
+                    <input type="text" class="form-control Dependiente_PEP" name="AñoPEP" >
                   </div>
                   <div class="form-group col-md-4">
                     <label for="PaisPEP">País:</label>
-                    <input type="text" class="form-control" name="PaisPEP" >
+                    <input type="text" class="form-control Dependiente_PEP" name="PaisPEP" >
                   </div>
                 </div>
               </div>
@@ -751,7 +751,7 @@
                     </div>
                     <div class="form-group col-md-4">
                       <label for="RF1_CEL">Celular:</label>
-                      <input type="text" class="form-control" name="RF1_CEL" id="RF1_CEL" >
+                      <input type="text" class="form-control" name="RF1_CEL" id="RF1_CEL" required>
                     </div>
                   </div>
 
@@ -788,7 +788,7 @@
                     </div>
                     <div class="form-group col-md-4">
                       <label for="RF2_CEL">Celular:</label>
-                      <input type="text" class="form-control" name="RF2_CEL" id="RF2_CEL" >
+                      <input type="text" class="form-control" name="RF2_CEL" id="RF2_CEL" required>
                     </div>
                   </div>
 
@@ -856,7 +856,7 @@
                   <div class="form-row">
                     <div class="form-group col-md-4">
                       <label for="RB1_Nombre">Nombre:</label>
-                      <input type="text" class="form-control" id="RB1_Nombre" name="RB1_Nombre" >
+                      <input type="text" class="form-control" id="RB1_Nombre" name="RB1_Nombre" required>
                     </div>
                     <div class="form-group col-md-4">
                       <label for="RB1_Tlf">Teléfono fijo:</label>
@@ -873,7 +873,7 @@
                   <div class="form-row">
                     <div class="form-group col-md-4">
                       <label for="RB2_Nombre">Nombre:</label>
-                      <input type="text" class="form-control" id="RB2_Nombre" name="RB2_Nombre" >
+                      <input type="text" class="form-control" id="RB2_Nombre" name="RB2_Nombre" required>
                     </div>
                     <div class="form-group col-md-4">
                       <label for="RB2_Tlf">Teléfono fijo:</label>
@@ -965,32 +965,32 @@
                       </div>
                       <div class="form-group col-md-4">
                         <label for="B1_ID">No. Identificación:</label>
-                        <input type="text" class="form-control" id="B1_ID" name="B1_ID" >
+                        <input type="text" class="form-control" id="B1_ID" name="B1_ID" required>
                       </div>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-4">
                         <label for="B1_FN">Fecha de nacimiento:</label>
-                        <input type="text" class="form-control" id="B1_FN" name="B1_FN" >
+                        <input type="date" class="form-control " id="B1_FN" name="B1_FN" required>
                       </div>
                       <div class="form-group col-md-4">
                         <label for="B1_P">Parentesco:</label>
-                        <select class="custom-select" name="B1_P" required>
+                        <select class="custom-select" name="B1_P" id="B1_P" required>
                           <option value="">Por favor selecciona</option>
-                          <option value="Identidad">Padre / Madre</option>
-                          <option value="Carné de recidencia">Hijo</option>
-                          <option value="Pasaporte">Hermano</option>
+                          <option value="Padre/Madre">Padre / Madre</option>
+                          <option value="Hijo">Hijo</option>
+                          <option value="Hermano">Hermano</option>
                         </select>
                       </div>
                       <div class="form-group col-md-4">
                         <label for="B1_Porc">Porcentaje:</label>
-                        <input type="text" class="form-control" id="B1_Porc" name="B1_Porc" >
+                        <input type="text" class="form-control" id="B1_Porc" name="B1_Porc" required>
                       </div>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-3">
                         <label for="B1_PNombre">Primer Nombre:</label>
-                        <input type="text" class="form-control" id="B1_PNombre" name="B1_PNombre" >
+                        <input type="text" class="form-control" id="B1_PNombre" name="B1_PNombre" required>
                       </div>
                       <div class="form-group col-md-3">
                         <label for="B1_SNombre">Segundo Nombre:</label>
@@ -998,7 +998,7 @@
                       </div>
                       <div class="form-group col-md-3">
                         <label for="B1_PApellido">Primer Apellido:</label>
-                        <input type="text" class="form-control" id="B1_PApellido" name="B1_PApellido" >
+                        <input type="text" class="form-control" id="B1_PApellido" name="B1_PApellido" required>
                       </div>
                       <div class="form-group col-md-3">
                         <label for="B1_SApellido">Segundo Apellido:</label>
@@ -1009,7 +1009,7 @@
                     <div class="form-row">
                       <div class="form-group col-md-3">
                         <label for="BM1_PNombre">Primer Nombre:</label>
-                        <input type="text" class="form-control" id="BM1_PNombre" name="BM1_PNombre" >
+                        <input type="text" class="form-control TutorXMenor1" id="BM1_PNombre" name="BM1_PNombre">
                       </div>
                       <div class="form-group col-md-3">
                         <label for="BM1_SNombre">Segundo Nombre:</label>
@@ -1017,7 +1017,7 @@
                       </div>
                       <div class="form-group col-md-3">
                         <label for="BM1_PApellido">Primer Apellido:</label>
-                        <input type="text" class="form-control" id="BM1_PApellido" name="BM1_PApellido" >
+                        <input type="text" class="form-control TutorXMenor1" id="BM1_PApellido" name="BM1_PApellido" >
                       </div>
                       <div class="form-group col-md-3">
                         <label for="BM1_SApellido">Segundo Apellido:</label>
@@ -1031,7 +1031,7 @@
                       </div>
                       <div class="form-group col-md-3">
                         <label for="BM1_TID">Tipo de identificación:</label>
-                        <select class="custom-select" name="BM1_TID" id="BM1_TID" required>
+                        <select class="custom-select TutorXMenor1" name="BM1_TID" id="BM1_TID">
                           <option value="">Por favor selecciona</option>
                           <option value="Identidad">Identidad</option>
                           <option value="Carné de recidencia">Carné de recidencia</option>
@@ -1040,11 +1040,11 @@
                       </div>
                       <div class="form-group col-md-3">
                         <label for="BM1_ID">No. Identificación:</label>
-                        <input type="text" class="form-control" id="BM1_ID" name="BM1_ID" >
+                        <input type="text" class="form-control TutorXMenor1" id="BM1_ID" name="BM1_ID" >
                       </div>
                       <div class="form-group col-md-3">
                         <label for="BM1_Dir">Dirección:</label>
-                        <input type="text" class="form-control" id="BM1_Dir" name="BM1_Dir" >
+                        <input type="text" class="form-control TutorXMenor1" id="BM1_Dir" name="BM1_Dir" >
                       </div>
                     </div>
                   </div>
@@ -1099,6 +1099,9 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-secondary">Guardar</button>
         </div>
       </form>
     </div>
