@@ -847,6 +847,7 @@
                     $("#adicional_"+orden + " #RF1_SNombre").attr({"id": `RF${orden}_SNombre`, "name": `RF${orden}_SNombre`});
                     $("#adicional_"+orden + " #RF1_PApellido").attr({"id": `RF${orden}_PApellido`, "name": `RF${orden}_PApellido`});
                     $("#adicional_"+orden + " #RF1_SApellido").attr({"id": `RF${orden}_SApellido`, "name": `RF${orden}_SApellido`});
+                    $("#adicional_"+orden + " label[class=error]").remove();
                   }
                 </script>
 
@@ -913,6 +914,7 @@
                     $("#adicionalRB_"+orden_RB + " #RB1_Nombre").attr({"id": `RB${orden_RB}_Nombre`, "name": `RB${orden_RB}_Nombre`});
                     $("#adicionalRB_"+orden_RB + " #RB1_Tlf").attr({"id": `RB${orden_RB}_Tlf`, "name": `RB${orden_RB}_Tlf`});
                     $("#adicionalRB_"+orden_RB + " #RB1_Cel").attr({"id": `RB${orden_RB}_Cel`, "name": `RB${orden_RB}_Cel`});
+                    $("#adicionalRB_"+orden_RB + " label[class=error]").remove();
                   }
                 </script>
 
@@ -971,11 +973,11 @@
                     <div class="form-row">
                       <div class="form-group col-md-4">
                         <label for="FN_B1_P">Fecha de nacimiento:</label>
-                        <input type="date" class="form-control " id="FN_B1_P" name="FN_B1_P" required>
+                        <input type="date" class="form-control B_FN" id="FN_B1_P" name="FN_B1_P" required>
                       </div>
                       <div class="form-group col-md-4">
                         <label for="B1_P">Parentesco:</label>
-                        <select class="custom-select B_P" name="B1_P" id="B1_P" required>
+                        <select class="custom-select B_P" name="B1_P" id="B1_P" required disabled>
                           <option value="">Por favor selecciona</option>
                           <option value="Padre/Madre">Padre / Madre</option>
                           <option value="Hijo">Hijo</option>
@@ -1047,10 +1049,6 @@
                         <input type="text" class="form-control TutorXMenor_B1_P" id="BM1_Dir" name="BM1_Dir" >
                       </div>
                     </div>
-                    <script type="text/javascript">
-                      
-                    </script>
-
                   </div>
                 </div>
 
@@ -1082,22 +1080,23 @@
                     $("#adicionalB_"+orden_B + " #B1_tipo_id").attr({"id": `B${orden_B}_tipo_id`, "name": `B${orden_B}_tipo_id`});
                     $("#adicionalB_"+orden_B + " #B1_ID").attr({"id": `B${orden_B}_ID`, "name": `B${orden_B}_ID`});
                     $("#adicionalB_"+orden_B + " #FN_B1_P").attr({"id": `FN_B${orden_B}_P`, "name": `FN_B${orden_B}_P`})
-                    $("#adicionalB_"+orden_B + " #B1_P").attr({"id": `B${orden_B}_P`, "name": `B${orden_B}_P`});
+                    $("#adicionalB_"+orden_B + " #B1_P").attr({"id": `B${orden_B}_P`, "name": `B${orden_B}_P`, "disabled": true});
                     $("#adicionalB_"+orden_B + " #B1_Porc").attr({"id": `B${orden_B}_Porc`, "name": `B${orden_B}_Porc`});
                     $("#adicionalB_"+orden_B + " #B1_PNombre").attr({"id": `B${orden_B}_PNombre`, "name": `B${orden_B}_PNombre`});
                     $("#adicionalB_"+orden_B + " #B1_SNombre").attr({"id": `B${orden_B}_SNombre`, "name": `B${orden_B}_SNombre`});
                     $("#adicionalB_"+orden_B + " #B1_PApellido").attr({"id": `B${orden_B}_PApellido`, "name": `B${orden_B}_PApellido`});
                     $("#adicionalB_"+orden_B + " #B1_SApellido").attr({"id": `B${orden_B}_SApellido`, "name": `B${orden_B}_SApellido`});
 
-
-                    $("#adicionalB_"+orden_B + " #BM1_PNombre").attr({"id": `BM${orden_B}_PNombre`, "name": `BM${orden_B}_PNombre`, "class": `form-control TutorXMenor_B${orden_B}_P`});
+                    //Datos tutor menor de edad
+                    $("#adicionalB_"+orden_B + " #BM1_PNombre").attr({"id": `BM${orden_B}_PNombre`, "name": `BM${orden_B}_PNombre`, "class": `form-control TutorXMenor_B${orden_B}_P`, "required": false});
                     $("#adicionalB_"+orden_B + " #BM1_SNombre").attr({"id": `BM${orden_B}_SNombre`, "name": `BM${orden_B}_SNombre`});
-                    $("#adicionalB_"+orden_B + " #BM1_PApellido").attr({"id": `BM${orden_B}_PApellido`, "name": `BM${orden_B}_PApellido`, "class": `form-control TutorXMenor_B${orden_B}_P`});
+                    $("#adicionalB_"+orden_B + " #BM1_PApellido").attr({"id": `BM${orden_B}_PApellido`, "name": `BM${orden_B}_PApellido`, "class": `form-control TutorXMenor_B${orden_B}_P`, "required": false});
                     $("#adicionalB_"+orden_B + " #BM1_SApellido").attr({"id": `BM${orden_B}_SApellido`, "name": `BM${orden_B}_SApellido`});
                     $("#adicionalB_"+orden_B + " #BM1_Tlf").attr({"id": `BM${orden_B}_Tlf`, "name": `BM${orden_B}_Tlf`});
-                    $("#adicionalB_"+orden_B + " #BM1_TID").attr({"id": `BM${orden_B}_TID`, "name": `BM${orden_B}_TID`, "class": `form-control TutorXMenor_B${orden_B}_P`});
-                    $("#adicionalB_"+orden_B + " #BM1_ID").attr({"id": `BM${orden_B}_ID`, "name": `BM${orden_B}_ID`, "class": `form-control TutorXMenor_B${orden_B}_P`});
-                    $("#adicionalB_"+orden_B + " #BM1_Dir").attr({"id": `BM${orden_B}_Dir`, "name": `BM${orden_B}_Dir`, "class": `form-control TutorXMenor_B${orden_B}_P`});
+                    $("#adicionalB_"+orden_B + " #BM1_TID").attr({"id": `BM${orden_B}_TID`, "name": `BM${orden_B}_TID`, "class": `form-control TutorXMenor_B${orden_B}_P`, "required": false});
+                    $("#adicionalB_"+orden_B + " #BM1_ID").attr({"id": `BM${orden_B}_ID`, "name": `BM${orden_B}_ID`, "class": `form-control TutorXMenor_B${orden_B}_P`, "required": false});
+                    $("#adicionalB_"+orden_B + " #BM1_Dir").attr({"id": `BM${orden_B}_Dir`, "name": `BM${orden_B}_Dir`, "class": `form-control TutorXMenor_B${orden_B}_P`, "required": false});
+                    $("#adicionalB_"+orden_B + " label[class=error]").remove();
                   }
                 </script>
 

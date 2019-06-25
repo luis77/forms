@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+//**************** PROCESO DE SELECTBOX PAIS**********/
 //let's create arrays
 var P_ElSalvador = [
 	{display: "San Salvador", value: "San Salvador" }];
@@ -211,7 +212,7 @@ function listM(array_listM, campo_select)
 }
 
 
-///////////////////////////////////////////////////////
+//**************** FINALIZADO PROCESO DE SELECTBOX PAIS**********/
 $('input[type=radio][name=DD_EdoC]').change(function() {
 	x = document.getElementsByClassName('Dependiente_C');
   
@@ -241,7 +242,15 @@ $('input[type=radio][name=funciones_publicas]').change(function() {
 	}
 });
 
-$('.B_P').change(function() {
+
+//cuando la fecha del beneficiario es añadida procede a activa el select parentesco 
+$(document).on('change', '.B_FN', function () { 
+	$(this).parent().parent().find('.B_P').prop('disabled', false);
+});
+
+
+//cuando el select parentesco es cambiado a hijo añade las validaciones a los campos
+$(document).on('change', '.B_P', function () { 
 	var id_select = $(this).attr("id");
 
     if ($(this).val() == "Hijo") {
@@ -259,11 +268,10 @@ $('.B_P').change(function() {
 			}
 		}
 	}
-
 });
 
 
-
+//proceso para calcular la edad
 function calculo_edad(campo_id){
     var mdate = $(campo_id).val().toString();
     var yearThen = parseInt(mdate.substring(0,4), 10);
