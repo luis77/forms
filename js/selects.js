@@ -213,34 +213,66 @@ function listM(array_listM, campo_select)
 
 
 //**************** FINALIZADO PROCESO DE SELECTBOX PAIS**********/
+//**************** RADIO BUTTON ESTADO CIVIL**********/
 $('input[type=radio][name=DD_EdoC]').change(function() {
+	Funcion_DD_Edoc($(this).val());
+});
+
+//when reload
+	var RL_DD_Edoc = document.querySelector('input[type=radio][name=DD_EdoC]:checked').value;
+	Funcion_DD_Edoc(RL_DD_Edoc);
+
+//function
+function Funcion_DD_Edoc(DD_EdoC){
 	x = document.getElementsByClassName('Dependiente_C');
-  
-    if ($(this).val() == "C" || $(this).val() == "UL") {
+    if (DD_EdoC == "C" || DD_EdoC == "UL") {
 		for (var i = 0; i < x.length; i++) { 
 	  		x[i].required = true;
 		}
-	}else if ($(this).val() == "S"){
+    	$("#Datos_Conyugue").attr({"style": 'display: contents;'});
+	}else if (DD_EdoC == "S"){
 		for (var i = 0; i < x.length; i++) { 
 	  		x[i].required = false;
 		}
+    	$("#Datos_Conyugue").attr({"style": 'display: none;'});
 	}
-});
+}
 
-
+//**************RADIOBUTTON Dependiente PEP******************/
 $('input[type=radio][name=funciones_publicas]').change(function() {
-	x = document.getElementsByClassName('Dependiente_PEP');
-  
-    if ($(this).val() == "S") {
+	Funcion_DependienetePEP($(this).val());
+});
+//when reload
+	var RL_DP = document.querySelector('input[type=radio][name=funciones_publicas]:checked').value;
+	Funcion_DependienetePEP(RL_DP);
+
+
+//proceso para calcular la edad
+function Funcion_DependienetePEP(dependientePEP){
+x = document.getElementsByClassName('Dependiente_PEP');
+    if (dependientePEP == "S") {
 		for (var i = 0; i < x.length; i++) { 
 	  		x[i].required = true;
 		}
-	}else if ($(this).val() == "N"){
+    	$("#Datos_PEP").attr({"style": 'display: contents;'});
+	}else if (dependientePEP == "N"){
 		for (var i = 0; i < x.length; i++) { 
 	  		x[i].required = false;
 		}
+    	$("#Datos_PEP").attr({"style": 'display: none;'});
 	}
-});
+}
+//**************/Checkbox Dependiente PEP******************/
+
+
+
+
+
+
+
+
+
+
 
 
 //cuando la fecha del beneficiario es añadida procede a activa el select parentesco 

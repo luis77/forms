@@ -355,114 +355,116 @@
                     </div>
                   </div>
                 </div>
-                <hr/><p class="centrado"><strong>Datos personales del cónyugue</strong><hr/><p>
-                <div class="form-row">
-                  <div class="form-group col-md-3">
-                    <label for="inputNombre1_Conyugue">Primer Nombre:</label>
-                    <input type="text" class="form-control Dependiente_C" id="inputNombre1_Conyugue" name="primer_nombre_Conyugue">
-                  </div>
-                  <div class="form-group col-md-3">
-                    <label for="inputNombre2_Conyugue">Segundo Nombre:</label>
-                    <input type="text" class="form-control" id="inputNombre2_Conyugue" name="segundo_nombre_Conyugue">
-                  </div>
+                <div id="Datos_Conyugue" style="display: none;">
+                  <hr/><p class="centrado"><strong>Datos personales del cónyugue</strong><hr/><p>
+                  <div class="form-row">
+                    <div class="form-group col-md-3">
+                      <label for="inputNombre1_Conyugue">Primer Nombre:</label>
+                      <input type="text" class="form-control Dependiente_C" id="inputNombre1_Conyugue" name="primer_nombre_Conyugue">
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="inputNombre2_Conyugue">Segundo Nombre:</label>
+                      <input type="text" class="form-control" id="inputNombre2_Conyugue" name="segundo_nombre_Conyugue">
+                    </div>
 
-                  <div class="form-group col-md-3">
-                    <label for="inputApellido1_Conyugue">Primer Apellido:</label>
-                    <input type="text" class="form-control Dependiente_C" id="inputApellido1_Conyugue" name="primer_apellido_Conyugue">
+                    <div class="form-group col-md-3">
+                      <label for="inputApellido1_Conyugue">Primer Apellido:</label>
+                      <input type="text" class="form-control Dependiente_C" id="inputApellido1_Conyugue" name="primer_apellido_Conyugue">
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="inputApellido2_Conyugue">Segundo Apellido:</label>
+                      <input type="text" class="form-control" id="inputApellido2_Conyugue" name="segundo_apellido_Conyugue">
+                    </div>
                   </div>
-                  <div class="form-group col-md-3">
-                    <label for="inputApellido2_Conyugue">Segundo Apellido:</label>
-                    <input type="text" class="form-control" id="inputApellido2_Conyugue" name="segundo_apellido_Conyugue">
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label>Genero:</label>
-                    <div class="form-row">
-                      <div class="form-group col-md-6">
-                        <div class="form-check">
-                          <input class="form-check-input Dependiente_C" type="radio" name="gridRadiosGenero_C" id="gridGeneroM_C" value="M">
-                          <label class="form-check-label" for="gridGeneroM_C">
-                            Masculino
-                          </label>
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label>Genero:</label>
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <div class="form-check">
+                            <input class="form-check-input Dependiente_C" type="radio" name="gridRadiosGenero_C" id="gridGeneroM_C" value="M">
+                            <label class="form-check-label" for="gridGeneroM_C">
+                              Masculino
+                            </label>
+                          </div>
                         </div>
-                      </div>
-                      <div class="form-group col-md-6">
-                        <div class="form-check">
-                          <input class="form-check-input Dependiente_C" type="radio" name="gridRadiosGenero_C" id="gridGeneroF_C" value="F" >
-                          <label class="form-check-label" for="gridGeneroF_C">
-                            Femenino
-                          </label>
+                        <div class="form-group col-md-6">
+                          <div class="form-check">
+                            <input class="form-check-input Dependiente_C" type="radio" name="gridRadiosGenero_C" id="gridGeneroF_C" value="F" >
+                            <label class="form-check-label" for="gridGeneroF_C">
+                              Femenino
+                            </label>
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <div class="form-group col-md-4">
+                      <label for="inputTlfConyugye">Teléfono fijo:</label>
+                      <input type="text" class="form-control" id="inputTlfConyugye" maxlength="15" >
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="inputConyugueCelular">Celular:</label>
+                      <input type="text" class="form-control" id="inputConyugueCelular" maxlength="15">
+                    </div>
                   </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputTlfConyugye">Teléfono fijo:</label>
-                    <input type="text" class="form-control" id="inputTlfConyugye" maxlength="15" >
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputConyugueCelular">Celular:</label>
-                    <input type="text" class="form-control" id="inputConyugueCelular" maxlength="15">
-                  </div>
-                </div>
 
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="inputFnacimientoConyugue">Fecha de nacimiento:</label>
-                    <input type="date" class="form-control Dependiente_C" id="FN_Conyugue" name="FN_Conyugue">
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputFnacimientoConyugue">Fecha de nacimiento:</label>
+                      <input type="date" class="form-control Dependiente_C" id="FN_Conyugue" name="FN_Conyugue">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputLugarNacimientoConyugue">Lugar de nacimiento:</label>
+                      <input type="text" class="form-control Dependiente_C" name="LN_Conyugue" maxlength="100" id="inputLugarNacimientoConyugue" >
+                    </div>
                   </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputLugarNacimientoConyugue">Lugar de nacimiento:</label>
-                    <input type="text" class="form-control Dependiente_C" name="LN_Conyugue" maxlength="100" id="inputLugarNacimientoConyugue" >
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputTipoidentificacionC">Tipo de identificación:</label>
+                      <select class="custom-select Dependiente_C" name="C_TID">
+                        <option value="">Por favor selecciona</option>
+                        <option value="Identidad">Identidad</option>
+                        <option value="Carné de referencia">Carné de referencia</option>
+                        <option value="Pasaporte">Pasaporte</option>
+                        <option value="Partida de nacimiento">Partida de nacimiento</option>
+                        <option value="RTN Numérico">RTN Numérico</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputNidentificacion">No. de identificación:</label>
+                      <input type="text" class="form-control Dependiente_C" name="N_ID_C" maxlength="50" id="inputNidentificacion" >
+                    </div>
                   </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="inputTipoidentificacionC">Tipo de identificación:</label>
-                    <select class="custom-select Dependiente_C" name="C_TID">
-                      <option value="">Por favor selecciona</option>
-                      <option value="Identidad">Identidad</option>
-                      <option value="Carné de referencia">Carné de referencia</option>
-                      <option value="Pasaporte">Pasaporte</option>
-                      <option value="Partida de nacimiento">Partida de nacimiento</option>
-                      <option value="RTN Numérico">RTN Numérico</option>
-                    </select>
+                  <hr/><p class="centrado"><strong>Datos laborales del cónyugue</strong><hr/><p>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="EmpresaLaboraConyugue">Empresa donde trabaja el cónyugue:</label>
+                      <input type="text" class="form-control Dependiente_C" maxlength="100" name="EmpresaLaboraConyugue" >
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="IngresoConyugue">Ingreso mensual:</label>
+                      <input type="number" class="form-control Dependiente_C" maxlength="20" name="IngresoConyugue">
+                    </div>
                   </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputNidentificacion">No. de identificación:</label>
-                    <input type="text" class="form-control Dependiente_C" name="N_ID_C" maxlength="50" id="inputNidentificacion" >
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="GiroEmpresaConyugue">Giro de la empresa donde labora:</label>
+                      <input type="text" class="form-control Dependiente_C" maxlength="30" name="GiroEmpresaConyugue" >
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="CargoAConyugue">Cargo actual:</label>
+                      <input type="text" class="form-control Dependiente_C" maxlength="100" name="CargoAConyugue">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="TlfTC">Nro. Teléfono del trabajo:</label>
+                      <input type="text" class="form-control Dependiente_C" name="TlfTC" maxlength="15" >
+                    </div>
                   </div>
-                </div>
-                <hr/><p class="centrado"><strong>Datos laborales del cónyugue</strong><hr/><p>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="EmpresaLaboraConyugue">Empresa donde trabaja el cónyugue:</label>
-                    <input type="text" class="form-control Dependiente_C" maxlength="100" name="EmpresaLaboraConyugue" >
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="IngresoConyugue">Ingreso mensual:</label>
-                    <input type="number" class="form-control Dependiente_C" maxlength="20" name="IngresoConyugue">
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="GiroEmpresaConyugue">Giro de la empresa donde labora:</label>
-                    <input type="text" class="form-control Dependiente_C" maxlength="30" name="GiroEmpresaConyugue" >
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="CargoAConyugue">Cargo actual:</label>
-                    <input type="text" class="form-control Dependiente_C" maxlength="100" name="CargoAConyugue">
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="TlfTC">Nro. Teléfono del trabajo:</label>
-                    <input type="text" class="form-control Dependiente_C" name="TlfTC" maxlength="15" >
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-12">
-                    <label for="DirTrabConyugue">Dirección del trabajo:</label>
-                    <textarea class="form-control Dependiente_C" name="DirTrabConyugue" maxlength="225"></textarea>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="DirTrabConyugue">Dirección del trabajo:</label>
+                      <textarea class="form-control Dependiente_C" name="DirTrabConyugue" maxlength="225"></textarea>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -692,7 +694,7 @@
                 <div class="form-row">
                   <div class="col-md-2">
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="funciones_publicas" id="funciones_publicas_S" value="S" checked>
+                      <input class="form-check-input" type="radio" name="funciones_publicas" id="funciones_publicas_S" value="S">
                       <label class="form-check-label" for="funciones_publicas">
                         Sí
                       </label>
@@ -710,29 +712,31 @@
                     <label>*En caso de contestar Sí contestar formulario <strong>PEP</strong> </label>
                    </div>
                 </div>
-                <hr/><p class="centrado"><strong>Funciones políticas PEP</strong><hr/><p>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="FPPEP">funciones públicas s/n PEP:</label>
-                    <input type="text" class="form-control Dependiente_PEP" name="FPPEP" >
+                <div id="Datos_PEP" style="display: none;">
+                  <hr/><p class="centrado"><strong>Funciones políticas PEP</strong><hr/><p>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="FPPEP">funciones públicas s/n PEP:</label>
+                      <input type="text" class="form-control Dependiente_PEP" name="FPPEP" >
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="CargoPEP">Cargo:</label>
+                      <input type="text" class="form-control Dependiente_PEP" name="CargoPEP" >
+                    </div>
                   </div>
-                  <div class="form-group col-md-6">
-                    <label for="CargoPEP">Cargo:</label>
-                    <input type="text" class="form-control Dependiente_PEP" name="CargoPEP" >
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="MesPEP">Mes:</label>
-                    <input type="text" class="form-control Dependiente_PEP" name="MesPEP" >
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="AñoPEP">Año:</label>
-                    <input type="text" class="form-control Dependiente_PEP" name="AñoPEP" >
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="PaisPEP">País:</label>
-                    <input type="text" class="form-control Dependiente_PEP" name="PaisPEP" >
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="MesPEP">Mes:</label>
+                      <input type="text" class="form-control Dependiente_PEP" name="MesPEP" >
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="AñoPEP">Año:</label>
+                      <input type="text" class="form-control Dependiente_PEP" name="AñoPEP" >
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="PaisPEP">País:</label>
+                      <input type="text" class="form-control Dependiente_PEP" name="PaisPEP" >
+                    </div>
                   </div>
                 </div>
               </div>
