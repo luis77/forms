@@ -1011,46 +1011,48 @@
                         <input type="text" class="form-control" id="B1_SApellido" name="B1_SApellido" >
                       </div>
                     </div>
-                    <hr/><p>Tutor legal por menor de edad:<hr/><p>
-                    <div class="form-row">
-                      <div class="form-group col-md-3">
-                        <label for="BM1_PNombre">Primer Nombre:</label>
-                        <input type="text" class="form-control TutorXMenor_B1_P" id="BM1_PNombre" name="BM1_PNombre">
+                    <div id="TutorXMenor_B1_P" style="display: none;">
+                      <hr/><p>Tutor legal por menor de edad:<hr/><p>
+                      <div class="form-row">
+                        <div class="form-group col-md-3">
+                          <label for="BM1_PNombre">Primer Nombre:</label>
+                          <input type="text" class="form-control TutorXMenor_B1_P" id="BM1_PNombre" name="BM1_PNombre">
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="BM1_SNombre">Segundo Nombre:</label>
+                          <input type="text" class="form-control" id="BM1_SNombre" name="BM1_SNombre" >
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="BM1_PApellido">Primer Apellido:</label>
+                          <input type="text" class="form-control TutorXMenor_B1_P" id="BM1_PApellido" name="BM1_PApellido" >
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="BM1_SApellido">Segundo Apellido:</label>
+                          <input type="text" class="form-control" id="BM1_SApellido" name="BM1_SApellido" >
+                        </div>
                       </div>
-                      <div class="form-group col-md-3">
-                        <label for="BM1_SNombre">Segundo Nombre:</label>
-                        <input type="text" class="form-control" id="BM1_SNombre" name="BM1_SNombre" >
-                      </div>
-                      <div class="form-group col-md-3">
-                        <label for="BM1_PApellido">Primer Apellido:</label>
-                        <input type="text" class="form-control TutorXMenor_B1_P" id="BM1_PApellido" name="BM1_PApellido" >
-                      </div>
-                      <div class="form-group col-md-3">
-                        <label for="BM1_SApellido">Segundo Apellido:</label>
-                        <input type="text" class="form-control" id="BM1_SApellido" name="BM1_SApellido" >
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group col-md-3">
-                        <label for="BM1_Tlf">Teléfonos:</label>
-                        <input type="text" class="form-control" id="BM1_Tlf" name="BM1_Tlf" >
-                      </div>
-                      <div class="form-group col-md-3">
-                        <label for="BM1_TID">Tipo de identificación:</label>
-                        <select class="custom-select TutorXMenor_B1_P" name="BM1_TID" id="BM1_TID">
-                          <option value="">Por favor selecciona</option>
-                          <option value="Identidad">Identidad</option>
-                          <option value="Carné de recidencia">Carné de recidencia</option>
-                          <option value="Pasaporte">De Pasaporte</option>
-                        </select>
-                      </div>
-                      <div class="form-group col-md-3">
-                        <label for="BM1_ID">No. Identificación:</label>
-                        <input type="text" class="form-control TutorXMenor_B1_P" id="BM1_ID" name="BM1_ID" >
-                      </div>
-                      <div class="form-group col-md-3">
-                        <label for="BM1_Dir">Dirección:</label>
-                        <input type="text" class="form-control TutorXMenor_B1_P" id="BM1_Dir" name="BM1_Dir" >
+                      <div class="form-row">
+                        <div class="form-group col-md-3">
+                          <label for="BM1_Tlf">Teléfonos:</label>
+                          <input type="text" class="form-control" id="BM1_Tlf" name="BM1_Tlf" >
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="BM1_TID">Tipo de identificación:</label>
+                          <select class="custom-select TutorXMenor_B1_P" name="BM1_TID" id="BM1_TID">
+                            <option value="">Por favor selecciona</option>
+                            <option value="Identidad">Identidad</option>
+                            <option value="Carné de recidencia">Carné de recidencia</option>
+                            <option value="Pasaporte">De Pasaporte</option>
+                          </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="BM1_ID">No. Identificación:</label>
+                          <input type="text" class="form-control TutorXMenor_B1_P" id="BM1_ID" name="BM1_ID" >
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="BM1_Dir">Dirección:</label>
+                          <input type="text" class="form-control TutorXMenor_B1_P" id="BM1_Dir" name="BM1_Dir" >
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1100,6 +1102,9 @@
                     $("#adicionalB_"+orden_B + " #BM1_TID").attr({"id": `BM${orden_B}_TID`, "name": `BM${orden_B}_TID`, "class": `form-control TutorXMenor_B${orden_B}_P`, "required": false});
                     $("#adicionalB_"+orden_B + " #BM1_ID").attr({"id": `BM${orden_B}_ID`, "name": `BM${orden_B}_ID`, "class": `form-control TutorXMenor_B${orden_B}_P`, "required": false});
                     $("#adicionalB_"+orden_B + " #BM1_Dir").attr({"id": `BM${orden_B}_Dir`, "name": `BM${orden_B}_Dir`, "class": `form-control TutorXMenor_B${orden_B}_P`, "required": false});
+                    $("#adicionalB_"+orden_B + " #TutorXMenor_B1_P").attr({"id": `TutorXMenor_B${orden_B}_P`, "style": "display:none;"});
+
+
                     $("#adicionalB_"+orden_B + " label[class=error]").remove();
                   }
                 </script>

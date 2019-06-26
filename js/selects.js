@@ -293,12 +293,20 @@ $(document).on('change', '.B_P', function () {
 			for (var i = 0; i < x.length; i++) { 
 	  			x[i].required = true;
 			}
+    		$('#TutorXMenor_'+id_select).attr({"style": 'display: contents;'});
 		}else if(year_age > 17){
 			x = document.getElementsByClassName('TutorXMenor_'+id_select);
 			for (var i = 0; i < x.length; i++) { 
 	  			x[i].required = false;
 			}
+    		$('#TutorXMenor_'+id_select).attr({"style": 'display: none;'});
 		}
+	}else {
+		x = document.getElementsByClassName('TutorXMenor_'+id_select);
+		for (var i = 0; i < x.length; i++) { 
+  			x[i].required = false;
+		}
+		$('#TutorXMenor_'+id_select).attr({"style": 'display: none;'});
 	}
 });
 
