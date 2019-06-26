@@ -264,28 +264,26 @@ x = document.getElementsByClassName('Dependiente_PEP');
 }
 //**************/Checkbox Dependiente PEP******************/
 
+//**************BENEFICIARIO TUTOR MENOR DE EDAD******************/
 
-
-
-
-
-
-
-
-
-
-
-//cuando la fecha del beneficiario es añadida procede a activa el select parentesco 
+//cuando la fecha del beneficiario es añadida procede a activar el select parentesco 
 $(document).on('change', '.B_FN', function () { 
 	$(this).parent().parent().find('.B_P').prop('disabled', false);
 });
 
-
 //cuando el select parentesco es cambiado a hijo añade las validaciones a los campos
 $(document).on('change', '.B_P', function () { 
 	var id_select = $(this).attr("id");
+	var B_P = $(this).val();
+	funcion_B_P(B_P, id_select);
+});
 
-    if ($(this).val() == "Hijo") {
+//when reload
+    var B_P = document.getElementById('B1_P').value;
+	funcion_B_P(B_P, 'B1_P');
+
+function funcion_B_P(B_P, id_select){
+    if (B_P == "Hijo") {
 		var year_age = calculo_edad("#FN_"+id_select);
 		
 		if (year_age < 18){
@@ -308,7 +306,7 @@ $(document).on('change', '.B_P', function () {
 		}
 		$('#TutorXMenor_'+id_select).attr({"style": 'display: none;'});
 	}
-});
+}
 
 
 //proceso para calcular la edad
@@ -333,6 +331,7 @@ function calculo_edad(campo_id){
     return year_age;
 }
 
+//**************/BENEFICIARIO TUTOR MENOR DE EDAD******************/
 
 
 
