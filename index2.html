@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/themes/blitzer/jquery-ui.css" rel="stylesheet" type="text/css"/>
+
+  <script src="js/jquery.validate.js"></script>
+  <script src="js/additional-methods.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.js"></script>
+  <script src="js/selects2.js"></script>
+
+
+  <script>
+  $( function() {
+    $(".fecha").datepicker({
+      format: "dd/mm/yyyy",
+      autoclose: true   
+    });
+  } );
+
+
+  $().ready(function() {
+    // validate the comment form when it is submitted
+
+    // validate signup form on keyup and submit
+    $("#form").validate({
+      rules: {
+        primer_nombre: {
+          required: true,
+          minlength: 2
+        }
+      }
+    });
+
+
+
+  });
+
+  </script>
+    <title>Formulario</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <form class="form" id="form" method="get" action="">
+        <div class="row">
+          <div class="col-xs-12 ">
+            <nav>
+              <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">INFORMACIÓN DEL AFILIADO</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">INFORMACIÓN PROFESIONAL Y LABORAL</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">REFERENCIAS DEL AFILIADO</a>
+              </div>
+            </nav>
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" style="margin: 1px 10px 0px;">
+                <hr/><p class="centrado"><strong>Información general de la empresa</strong><hr/><p>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="HojaAfiliacion">Nombre de la empresa:</label>
+                    <input type="text" class="form-control" name="HojaAfiliacion"  maxlength="10" required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="Fecha_Afiliación">Denominación social:</label>
+                    <input type="date" class="form-control" id="Fecha_Afiliación" name="Fecha_Afiliación" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label for="inputNombre1">Origen o procedencia de los fondos:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputNombre2">Total de activos, ventas o ingresos(monto aproximado):</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label for="inputApellido1">No. patronal del IHSS:</label>
+                    <input type="text" class="form-control" id="inputApellido1" required>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputApellido2">Fecha que inició operaciones:</label>
+                    <input type="text" class="form-control" id="inputApellido2" >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputTipoidentificacion">Tipo de identificación:</label>
+                    <select class="custom-select" name="tipo_id" required>
+                      <option value="">Por favor selecciona</option>
+                      <option value="Identidad">Identidad</option>
+                      <option value="Carné de recidencia">Carné de recidencia</option>
+                      <option value="Pasaporte">Pasaporte</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputNidentificacion">No. de identificación:</label>
+                    <input type="text" class="form-control" id="inputNidentificacion" name="NIdentificacion" maxlength="50" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="fecha">Fecha de nacimiento:</label>
+                    <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                  </div>
+   	              <div class="form-group col-md-6">
+                    <label for="inputNacionalidad">Nacionalidad:</label>
+                    <select class="custom-select" required name="nacionalidad">
+                      <option value="">Por favor selecciona</option>
+                      <option value="El Salvador">El Salvador</option>
+                      <option value="Estados Unidos">Estados Unidos</option>
+                      <option value="Honduras">Honduras</option>
+                      <option value="México">México</option>
+                    </select>
+                  </div>
+                </div>
+                  <hr/><p class="centrado"><strong>Datos personales del cónyugue</strong><hr/><p>
+               
+               
+              </div>
+              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" style="margin: 1px 10px 0px;">
+                
+              </div>
+              <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" style="margin: 1px 10px 0px;">
+              
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-secondary">Guardar</button>
+        </div>
+      </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+    /*jquery validate*/
+  form.cmxform label.error, label.error {
+    /* remove the next line when you have trouble in IE6 with labels in list */
+    color: red;
+    font-style: italic
+  }
+  /*jquery validate*/
+
+nav > .nav.nav-tabs{
+
+  border: none;
+    color:#fff;
+    background:#272e38;
+    border-radius:0;
+
+}
+nav > div a.nav-item.nav-link,
+nav > div a.nav-item.nav-link.active
+{
+  border: none;
+    padding: 18px 25px;
+    color:#fff;
+    background:#0076bc;
+    border-radius:0;
+}
+
+nav > div a.nav-item.nav-link.active:after
+ {
+  content: "";
+  position: relative;
+  bottom: -60px;
+  left: -10%;
+  border: 15px solid transparent;
+  border-top-color: #f7931e;
+}
+.tab-content{
+  background: #fdfdfd;
+    line-height: 25px;
+    border: 1px solid #ddd;
+    border-top:5px solid #f7931e;
+    border-bottom:5px solid #f7931e;
+    padding:30px 25px;
+}
+
+nav > div a.nav-item.nav-link:hover,
+nav > div a.nav-item.nav-link:focus
+{
+  border: none;
+    background: #f7931e;
+    color:#fff;
+    border-radius:0;
+    transition:background 0.20s linear;
+}
+
+
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.centrado{
+	text-align: center;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

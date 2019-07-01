@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-
+  <link rel="stylesheet" href="css/my_styles.css">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -37,6 +37,19 @@
 
     // validate signup form on keyup and submit
     $("#form").validate({
+      ignore: [],
+      submitHandler: function() {
+          alert('Successfully saved!');
+      },
+      invalidHandler: function() {
+          setTimeout(function() {
+              $('.nav-tabs a small.required').remove();
+              var validatePane = $('.tab-content .tab-pane:has(input.error, select.error)').each(function() {
+                  var id = $(this).attr('id');
+                  $('.nav-tabs').find('a[href^="#' + id + '"]').append(' <small class="required">***</small>');
+              });
+          });            
+      },
       rules: {
         primer_nombre: {
           required: true,
@@ -1119,125 +1132,6 @@
         </div>
       </form>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<style type="text/css">
-    /*jquery validate*/
-  form.cmxform label.error, label.error {
-    /* remove the next line when you have trouble in IE6 with labels in list */
-    color: red;
-    font-style: italic
-  }
-  /*jquery validate*/
-
-nav > .nav.nav-tabs{
-
-  border: none;
-    color:#fff;
-    background:#272e38;
-    border-radius:0;
-
-}
-nav > div a.nav-item.nav-link,
-nav > div a.nav-item.nav-link.active
-{
-  border: none;
-    padding: 18px 25px;
-    color:#fff;
-    background:#0076bc;
-    border-radius:0;
-}
-
-nav > div a.nav-item.nav-link.active:after
- {
-  content: "";
-  position: relative;
-  bottom: -60px;
-  left: -10%;
-  border: 15px solid transparent;
-  border-top-color: #f7931e;
-}
-.tab-content{
-  background: #fdfdfd;
-    line-height: 25px;
-    border: 1px solid #ddd;
-    border-top:5px solid #f7931e;
-    border-bottom:5px solid #f7931e;
-    padding:30px 25px;
-}
-
-nav > div a.nav-item.nav-link:hover,
-nav > div a.nav-item.nav-link:focus
-{
-  border: none;
-    background: #f7931e;
-    color:#fff;
-    border-radius:0;
-    transition:background 0.20s linear;
-}
-
-
-
-hr {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.centrado{
-	text-align: center;
-}
-</style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- Optional JavaScript -->
