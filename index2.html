@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
+  <link rel="stylesheet" href="css/my_styles.css">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -67,38 +68,177 @@
             </nav>
             <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
               <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" style="margin: 1px 10px 0px;">
-                <hr/><p class="centrado"><strong>Información general de la empresa</strong><hr/><p>
+                <hr/><p class="x"><strong>Instrucciones:</strong>Completar la siguiente información sin dejar espacios en blanco, en los casos que no aploque indique N/A; y, la información proporcionada en este formulario será de estricta confidencialidad y para uso del<hr/><p>
                 <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="HojaAfiliacion">Nombre de la empresa:</label>
-                    <input type="text" class="form-control" name="HojaAfiliacion"  maxlength="10" required>
+                  <div class="form-group col-md-12">
+                    <label>Cantidad de empleados por empresa:</label>
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="CanEmpxEmp" id="CanEmpxEmp10" value="Mas de 10" checked required>
+                          <label class="form-check-label" for="CanEmpxEmp10">
+                            Empresa con 10 o más empleados 
+                          </label>
+                        </div>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="CanEmpxEmp" id="CanEmpxEmp-10" value="Menos de 10" required>
+                          <label class="form-check-label" for="CanEmpxEmp-10">
+                            Empresa con menos de 10 empleados
+                          </label>
+                        </div>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="CanEmpxEmp" id="CanEmpxEmpM" value="Maquila con 10 o mas" required>
+                          <label class="form-check-label" for="CanEmpxEmpM">
+                            Maquila con 10 o mas empleados
+                          </label>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="form-group col-md-6">
-                    <label for="Fecha_Afiliación">Denominación social:</label>
-                    <input type="date" class="form-control" id="Fecha_Afiliación" name="Fecha_Afiliación" required>
+                </div>  
+                <hr/><p class="centrado"><strong>TIPO DE PRODUCTO</strong><hr/><p>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="TipoProducto" id="TipoProductoP" value="fondo pensiones" checked required>
+                      <label class="form-check-label" for="TipoProductoP">
+                        Fondo de pensiones 
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="TipoProducto" id="TipoProductoC" value="fondo cesantias">
+                      <label class="form-check-label" for="TipoProductoC">
+                        Fondo de Cesantias
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="TipoProducto" id="TipoProductoV" value="fondo viviendas">
+                      <label class="form-check-label" for="TipoProductoV">
+                        Fondo de Vivienda
+                      </label>
+                    </div>
                   </div>
                 </div>
                 <div class="form-row">
-                  <div class="form-group col-md-3">
+                  <div class="form-group col-md-4">
+                    <label for="PorcAp">Porcentaje del aporte:</label>
+                    <input type="text" class="form-control" name="PorcAp"  maxlength="10" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="PorcAp_Empresa">Empresa:</label>
+                    <input type="text" class="form-control" id="PorcAp_Empresa" name="PorcAp_Empresa" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="PorcAp_Col">Colaborador:</label>
+                    <input type="text" class="form-control" id="PorcAp_Col" name="PorcAp_Col" required>
+                  </div>
+                </div>
+                <hr/><p class="centrado"><strong>INFORMACIÓN GENERAL DE LA EMPRESA</strong><hr/><p>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="N_Empresa">Nombre de la empresa:</label>
+                    <input type="text" class="form-control" name="N_Empresa"  maxlength="50" required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="Den_social">Denominación social:</label>
+                    <input type="text" class="form-control" id="Den_social" name="Den_social" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputNombre2">Actividad económica de la empresa:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-6">
                     <label for="inputNombre1">Origen o procedencia de los fondos:</label>
                     <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
                   </div>
-                  <div class="form-group col-md-3">
-                    <label for="inputNombre2">Total de activos, ventas o ingresos(monto aproximado):</label>
-                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
-                  </div>
-
-                  <div class="form-group col-md-3">
-                    <label for="inputApellido1">No. patronal del IHSS:</label>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-5">
+                    <label for="inputApellido1">Total activos, ventas o ingresos (Monto aproximado):</label>
                     <input type="text" class="form-control" id="inputApellido1" required>
                   </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">No. Patronal del IHSS:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
                   <div class="form-group col-md-3">
-                    <label for="inputApellido2">Fecha que inició operaciones:</label>
-                    <input type="text" class="form-control" id="inputApellido2" >
+                    <label for="inputNombre1">RTN:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
                   </div>
                 </div>
                 <div class="form-row">
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-3">
+                    <label for="inputNombre1">Fecha inicio operaciones:</label>
+                    <input type="date" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputApellido1">No. Empleados (inicio operaciones):</label>
+                    <input type="text" class="form-control" id="inputApellido1" required>
+                  </div>
+                  <div class="form-group col-md-5">
+                    <label for="inputNombre2">A partir de que fecha tuvo mas de 10:</label>
+                    <input type="date" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label for="inputNombre1">No. Total de empleados:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputApellido1">No. Total de empleados a registrar:</label>
+                    <input type="text" class="form-control" id="inputApellido1" required>
+                  </div>
+                </div>
+                <hr/><p class="centrado"><strong>REPRESENTANTE LEGAL DE LA EMPRESA</strong><hr/><p>
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label for="N_Empresa">Primer nombre:</label>
+                    <input type="text" class="form-control" name="N_Empresa"  maxlength="10" required>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="Den_social">Segundo Nombre:</label>
+                    <input type="text" class="form-control" id="Den_social" name="Den_social" required>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="N_Empresa">Primer Apellido:</label>
+                    <input type="text" class="form-control" name="N_Empresa"  maxlength="10" required>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="Den_social">Segundo Apellido:</label>
+                    <input type="text" class="form-control" id="Den_social" name="Den_social" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label for="inputNombre2">Cargo:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputNombre1">Nacionalidad:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputNombre2">No. Teléfono fijo:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputNombre1">No. Celular:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-3">
                     <label for="inputTipoidentificacion">Tipo de identificación:</label>
                     <select class="custom-select" name="tipo_id" required>
                       <option value="">Por favor selecciona</option>
@@ -107,30 +247,318 @@
                       <option value="Pasaporte">Pasaporte</option>
                     </select>
                   </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputNidentificacion">No. de identificación:</label>
-                    <input type="text" class="form-control" id="inputNidentificacion" name="NIdentificacion" maxlength="50" required>
+                  <div class="form-group col-md-3">
+                    <label for="inputNombre2">No. Identificación:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputNombre1">Correo Electrónico Personal:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputNombre1">Correo Electrónico Laboral:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                </div>
+                <hr/><p class="centrado"><strong>CONTACTO DE LA EMPRESA PARA ENVIO  DE INFORMACION Y PLANILLAS</strong><hr/><p>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Nombre:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">Cargo:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">No. Celular:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                </div>                            
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">No. Tel Fijo:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Correo Electrónico:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">Mes y año de primer planilla:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                </div>  
+                <hr/><p class="centrado"><strong>INFORMACIÓN DE LA CONSTITUCIÓN DE LA EMPRESA</strong><hr/><p>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Pais:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">No. de escritura:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">No. de inscripción de registro:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                </div>                
+                <p><strong>Camara de Comercio:</strong>            
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">No. De inscripción:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Fecha de inscripción:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">No. De Tomo:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                </div>
+                <p><strong>Instituto de la propiedad:</strong>            
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">No. De inscripción:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Fecha de inscripción:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">No. De Tomo/Folio/Matrícula:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                </div>                 
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">Finalidad Social:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Tipo de sociedad:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">Sector económico al que pertenece:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                </div> 
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">Capital social total:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">No. De accionistas:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Tipo de Accionistas:</label>
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadiosGenero" id="gridGeneroM" value="option1" checked required>
+                          <label class="form-check-label" for="gridGeneroM">
+                            Normativas 
+                          </label>
+                        </div>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadiosGenero" id="gridGeneroF" value="option2" required>
+                          <label class="form-check-label" for="gridGeneroF">
+                            Al portador
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>  
+                <hr/><p class="centrado"><strong>INFORMACIÓN SOCIOS DE LA EMPRESA</strong><hr/><p>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Nombre del socio:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">No. de identidad:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">% de participación:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
                   </div>
                 </div>
                 <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="fecha">Fecha de nacimiento:</label>
-                    <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Dirección de domicilio:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
                   </div>
-   	              <div class="form-group col-md-6">
-                    <label for="inputNacionalidad">Nacionalidad:</label>
-                    <select class="custom-select" required name="nacionalidad">
-                      <option value="">Por favor selecciona</option>
-                      <option value="El Salvador">El Salvador</option>
-                      <option value="Estados Unidos">Estados Unidos</option>
-                      <option value="Honduras">Honduras</option>
-                      <option value="México">México</option>
-                    </select>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">No. tel / celular:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Correo electrónico:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                </div>     
+                <hr/><p class="centrado"><strong>DIRECCIÓN DE LA EMPRESA</strong><hr/><p>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Departamento:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">Municipio:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Ciudad:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
                   </div>
                 </div>
-                  <hr/><p class="centrado"><strong>Datos personales del cónyugue</strong><hr/><p>
-               
-               
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Barrio / colonia:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">Avenida:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Calle:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                </div> 
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Teléfonos:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">Correo electrónico:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Fax:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                </div> 
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputNombre2">Apdo. postal:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputNombre1">Otras referencias:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                </div>   
+                <hr/><p class="centrado"><strong>SUCURSALES Y AGENCIAS</strong><hr/><p>
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label for="inputNombre2">Sucursal:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="inputNombre1">No. Patronal IHSS:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Dirección:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputNombre2">No. de teléfono:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                </div>
+                <hr/><p class="centrado"><strong>PRINCIPALES CIENTES</strong><hr/><p>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Nombre de la empresa:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">Rubro:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Contacto:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Dirección de referencia:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">No. De teléfono:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Fecha de inicio de relación:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                </div>
+                <hr/><p class="centrado"><strong>REFERENCIAS BANCARIAS / COMERCIALES</strong><hr/><p>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Institución de referencia:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">Tipo de referencia:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Fecha de inicio de relación:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                </div>
+                <hr/><p class="centrado"><strong>REFERENCIAS DE PROVEEDORES DE LA EMPRESA</strong><hr/><p>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Nombre de la Empresa:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre1">Rubro:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputNombre2">Contacto:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-7">
+                    <label for="inputNombre2">Dirección de referencia:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-5">
+                    <label for="inputNombre1">No. De teléfono:</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label for="inputNombre2">Fecha de inicio de relación:</label>
+                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                  </div>
+                  <div class="form-group col-md-9">
+                    <label for="inputNombre1">Lugar y fecha de la Inscripcion :</label>
+                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                  </div>
+                </div>
               </div>
               <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" style="margin: 1px 10px 0px;">
                 
@@ -146,124 +574,6 @@
         </div>
       </form>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<style type="text/css">
-    /*jquery validate*/
-  form.cmxform label.error, label.error {
-    /* remove the next line when you have trouble in IE6 with labels in list */
-    color: red;
-    font-style: italic
-  }
-  /*jquery validate*/
-
-nav > .nav.nav-tabs{
-
-  border: none;
-    color:#fff;
-    background:#272e38;
-    border-radius:0;
-
-}
-nav > div a.nav-item.nav-link,
-nav > div a.nav-item.nav-link.active
-{
-  border: none;
-    padding: 18px 25px;
-    color:#fff;
-    background:#0076bc;
-    border-radius:0;
-}
-
-nav > div a.nav-item.nav-link.active:after
- {
-  content: "";
-  position: relative;
-  bottom: -60px;
-  left: -10%;
-  border: 15px solid transparent;
-  border-top-color: #f7931e;
-}
-.tab-content{
-  background: #fdfdfd;
-    line-height: 25px;
-    border: 1px solid #ddd;
-    border-top:5px solid #f7931e;
-    border-bottom:5px solid #f7931e;
-    padding:30px 25px;
-}
-
-nav > div a.nav-item.nav-link:hover,
-nav > div a.nav-item.nav-link:focus
-{
-  border: none;
-    background: #f7931e;
-    color:#fff;
-    border-radius:0;
-    transition:background 0.20s linear;
-}
-
-
-
-hr {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.centrado{
-	text-align: center;
-}
-</style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
