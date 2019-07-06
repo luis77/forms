@@ -38,11 +38,18 @@
 
     // validate signup form on keyup and submit
     $("#form").validate({
-      rules: {
-        primer_nombre: {
-          required: true,
-          minlength: 2
-        }
+      ignore: [],
+      submitHandler: function() {
+          alert('Successfully saved!');
+      },
+      invalidHandler: function() {
+          setTimeout(function() {
+              $('.nav-tabs a small.required').remove();
+              var validatePane = $('.tab-content .tab-pane:has(input.error, select.error)').each(function() {
+                  var id = $(this).attr('id');
+                  $('.nav-tabs').find('a[href^="#' + id + '"]').append(' <small class="required">***</small>');
+              });
+          });            
       }
     });
 
@@ -62,7 +69,7 @@
             <nav>
               <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">INFORMACIÓN DEL AFILIADO</a>
-                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">INFORMACIÓN PROFESIONAL Y LABORAL</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> CLIENTES / REFERENCIAS</a>
                 <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">REFERENCIAS DEL AFILIADO</a>
               </div>
             </nav>
@@ -75,25 +82,25 @@
                     <div class="form-row">
                       <div class="form-group col-md-4">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="CanEmpxEmp" id="CanEmpxEmp10" value="Mas de 10" checked required>
-                          <label class="form-check-label" for="CanEmpxEmp10">
+                          <input class="form-check-input" type="radio" name="Cant_EmpleadosxEmpresa" id="CanEmpleadosxEmpresaMasDe10" value="Mas de 10" checked required>
+                          <label class="form-check-label" for="CanEmpleadosxEmpresaMasDe10">
                             Empresa con 10 o más empleados 
                           </label>
                         </div>
                       </div>
                       <div class="form-group col-md-4">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="CanEmpxEmp" id="CanEmpxEmp-10" value="Menos de 10" required>
-                          <label class="form-check-label" for="CanEmpxEmp-10">
+                          <input class="form-check-input" type="radio" name="Cant_EmpleadosxEmpresa" id="CanEmpleadosxEmpresaMenosDe10" value="Menos de 10" required>
+                          <label class="form-check-label" for="CanEmpleadosxEmpresaMenosDe10">
                             Empresa con menos de 10 empleados
                           </label>
                         </div>
                       </div>
                       <div class="form-group col-md-4">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="CanEmpxEmp" id="CanEmpxEmpM" value="Maquila con 10 o mas" required>
-                          <label class="form-check-label" for="CanEmpxEmpM">
-                            Maquila con 10 o mas empleados
+                          <input class="form-check-input" type="radio" name="Cant_EmpleadosxEmpresa" id="CanEmpleadosxEmpresaMaquilaMasDe10" value="Maquila con 10 o mas" required>
+                          <label class="form-check-label" for="CanEmpleadosxEmpresaMaquilaMasDe10">
+                            Maquila con 10 o más empleados
                           </label>
                         </div>
                       </div>
@@ -104,24 +111,24 @@
                 <div class="form-row">
                   <div class="form-group col-md-4">
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="TipoProducto" id="TipoProductoP" value="fondo pensiones" checked required>
-                      <label class="form-check-label" for="TipoProductoP">
+                      <input class="form-check-input" type="radio" name="TipoProducto" id="TipoProductoPensiones" value="fondo pensiones" checked required>
+                      <label class="form-check-label" for="TipoProductoPensiones">
                         Fondo de pensiones 
                       </label>
                     </div>
                   </div>
                   <div class="form-group col-md-4">
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="TipoProducto" id="TipoProductoC" value="fondo cesantias">
-                      <label class="form-check-label" for="TipoProductoC">
+                      <input class="form-check-input" type="radio" name="TipoProducto" id="TipoProductoCesantias" value="fondo cesantias">
+                      <label class="form-check-label" for="TipoProductoCesantias">
                         Fondo de Cesantias
                       </label>
                     </div>
                   </div>
                   <div class="form-group col-md-4">
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="TipoProducto" id="TipoProductoV" value="fondo viviendas">
-                      <label class="form-check-label" for="TipoProductoV">
+                      <input class="form-check-input" type="radio" name="TipoProducto" id="TipoProductoVivienda" value="fondo viviendas">
+                      <label class="form-check-label" for="TipoProductoVivienda">
                         Fondo de Vivienda
                       </label>
                     </div>
@@ -129,47 +136,47 @@
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-4">
-                    <label for="PorcAp">Porcentaje del aporte:</label>
-                    <input type="text" class="form-control" name="PorcAp"  maxlength="10" required>
+                    <label for="PorcentajeAporte">Porcentaje del aporte:</label>
+                    <input type="text" class="form-control" id="PorcentajeAporte" name="PorcentajeAporte"  maxlength="10" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="PorcAp_Empresa">Empresa:</label>
-                    <input type="text" class="form-control" id="PorcAp_Empresa" name="PorcAp_Empresa" required>
+                    <label for="PorcentajeAporte_Empresa">Empresa:</label>
+                    <input type="text" class="form-control" id="PorcentajeAporte_Empresa" name="PorcentajeAporte_Empresa" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="PorcAp_Col">Colaborador:</label>
-                    <input type="text" class="form-control" id="PorcAp_Col" name="PorcAp_Col" required>
+                    <label for="PorcentajeAporte_colaborador">Colaborador:</label>
+                    <input type="text" class="form-control" id="PorcentajeAporte_colaborador" name="PorcentajeAporte_colaborador" required>
                   </div>
                 </div>
                 <hr/><p class="centrado"><strong>INFORMACIÓN GENERAL DE LA EMPRESA</strong><hr/><p>
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="IG_NEmpresa">Nombre de la empresa:</label>
-                    <input type="text" class="form-control" name="IG_N_Empresa"  maxlength="50" required>
+                    <label for="IG_Nombre_Empresa">Nombre de la empresa:</label>
+                    <input type="text" class="form-control" id="IG_Nombre_Empresa" name="IG_Nombre_Empresa"  maxlength="50" required>
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="IG_Dsocial">Denominación social:</label>
-                    <input type="text" class="form-control" id="IG_Dsocial" name="IG_Dsocial" required>
+                    <label for="IG_Denominacion_Social">Denominación social:</label>
+                    <input type="text" class="form-control" id="IG_Denominacion_Social" name="IG_Denominacion_Social" required>
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="IG_ActE">Actividad económica de la empresa:</label>
-                    <input type="text" class="form-control" id="IG_ActE" name="IG_ActE" required>
+                    <label for="IG_Actividad_Economica_Empresa">Actividad económica de la empresa:</label>
+                    <input type="text" class="form-control" id="IG_Actividad_Economica_Empresa" name="IG_Actividad_Economica_Empresa" required>
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="IG_OrgFondos">Origen o procedencia de los fondos:</label>
-                    <input type="text" class="form-control" id="IG_OrgFondos" name="IG_OrgFondos" required>
+                    <label for="IG_OrgigenFondos">Origen o procedencia de los fondos:</label>
+                    <input type="text" class="form-control" id="IG_OrgigenFondos" name="IG_OrgigenFondos" required>
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-5">
-                    <label for="IG_TotAct">Total activos, ventas o ingresos (Monto aproximado):</label>
-                    <input type="text" class="form-control" id="IG_TotAct" name="IG_TotAct" required>
+                    <label for="IG_TotalActivos">Total activos, ventas o ingresos (Monto aproximado):</label>
+                    <input type="text" class="form-control" id="IG_TotalActivos" name="IG_TotalActivos" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="IG_NPI">No. Patronal del IHSS:</label>
-                    <input type="text" class="form-control" id="IG_NPI" name="IG_NPI" required>
+                    <label for="IG_NumeroPatronal_IHSS">No. Patronal del IHSS:</label>
+                    <input type="text" class="form-control" id="IG_NumeroPatronal_IHSS" name="IG_NumeroPatronal_IHSS" required>
                   </div>
                   <div class="form-group col-md-3">
                     <label for="IG_RTN">RTN:</label>
@@ -178,45 +185,45 @@
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-3">
-                    <label for="IG_FIO">Fecha inicio operaciones:</label>
-                    <input type="date" class="form-control" id="IG_FIO" name="IG_FIO" required>
+                    <label for="IG_FechaInicioOperaciones">Fecha inicio operaciones:</label>
+                    <input type="date" class="form-control" id="IG_FechaInicioOperaciones" name="IG_FechaInicioOperaciones" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="IG_NE">No. Empleados (inicio operaciones):</label>
-                    <input type="text" class="form-control" id="IG_NE" name="IG_NE" required>
+                    <label for="IG_NumeroEmpleados">No. Empleados (inicio operaciones):</label>
+                    <input type="text" class="form-control" id="IG_NumeroEmpleados" name="IG_NumeroEmpleados" required>
                   </div>
                   <div class="form-group col-md-5">
-                    <label for="IG_MDiez">A partir de que fecha tuvo más de 10:</label>
-                    <input type="date" class="form-control" id="IG_MDiez" name="IG_MDiez">
+                    <label for="IG_FechaMasDe10">A partir de que fecha tuvo más de 10:</label>
+                    <input type="date" class="form-control" id="IG_FechaMasDe10" name="IG_FechaMasDe10">
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-3">
-                    <label for="IG_TotE">No. Total de empleados:</label>
-                    <input type="text" class="form-control" id="IG_TotE" name="IG_TotE" required>
+                    <label for="IG_TotalEmpleados">No. Total de empleados:</label>
+                    <input type="text" class="form-control" id="IG_TotalEmpleados" name="IG_TotalEmpleados" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="IG_TotER">No. Total de empleados a registrar:</label>
-                    <input type="text" class="form-control" name="IG_TotER" required>
+                    <label for="IG_TotalEmpleadosARegistrar">No. Total de empleados a registrar:</label>
+                    <input type="text" class="form-control" id="IG_TotalEmpleadosARegistrar" name="IG_TotalEmpleadosARegistrar" required>
                   </div>
                 </div>
                 <hr/><p class="centrado"><strong>REPRESENTANTE LEGAL DE LA EMPRESA</strong><hr/><p>
                 <div class="form-row">
                   <div class="form-group col-md-3">
-                    <label for="RL_PN">Primer nombre:</label>
-                    <input type="text" class="form-control" name="RL_PN"  maxlength="30" required>
+                    <label for="RL_PrimerNombre">Primer nombre:</label>
+                    <input type="text" class="form-control" id="RL_PrimerNombre" name="RL_PrimerNombre"  maxlength="30" required>
                   </div>
                   <div class="form-group col-md-3">
-                    <label for="RL_SN">Segundo Nombre:</label>
-                    <input type="text" class="form-control" id="RL_SN" name="RL_SN">
+                    <label for="RL_SegundoNombre">Segundo Nombre:</label>
+                    <input type="text" class="form-control" id="RL_SegundoNombre" name="RL_SegundoNombre">
                   </div>
                   <div class="form-group col-md-3">
-                    <label for="RL_PA">Primer Apellido:</label>
-                    <input type="text" class="form-control" name="RL_PA"  maxlength="30" required>
+                    <label for="RL_PrimerApellido">Primer Apellido:</label>
+                    <input type="text" class="form-control" id="RL_PrimerApellido" name="RL_PrimerApellido"  maxlength="30" required>
                   </div>
                   <div class="form-group col-md-3">
-                    <label for="RL_SA">Segundo Apellido:</label>
-                    <input type="text" class="form-control" id="RL_SA" name="RL_SA">
+                    <label for="RL_SegundoApellido">Segundo Apellido:</label>
+                    <input type="text" class="form-control" id="RL_SegundoApellido" name="RL_SegundoApellido">
                   </div>
                 </div>
                 <div class="form-row">
@@ -229,18 +236,18 @@
                     <input type="text" class="form-control" id="RL_Nacionalidad" name="RL_Nacionalidad" required>
                   </div>
                   <div class="form-group col-md-3">
-                    <label for="RL_NTelf">No. Teléfono fijo:</label>
-                    <input type="text" class="form-control" id="RL_NTelf" name="RL_NTelf">
+                    <label for="RL_NumeroTelf">No. Teléfono fijo:</label>
+                    <input type="text" class="form-control" id="RL_NumeroTelf" name="RL_NumeroTelf">
                   </div>
                   <div class="form-group col-md-3">
-                    <label for="RL_NCel">No. Celular:</label>
-                    <input type="text" class="form-control" id="RL_NCel" name="RL_NCel" required>
+                    <label for="RL_NumeroCelular">No. Celular:</label>
+                    <input type="text" class="form-control" id="RL_NumeroCelular" name="RL_NumeroCelular" required>
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-3">
-                    <label for="inputTipoidentificacion">Tipo de identificación:</label>
-                    <select class="custom-select" name="tipo_id" required>
+                    <label for="RL_TipoID">Tipo de identificación:</label>
+                    <select class="custom-select" id="RL_TipoID" name="RL_TipoID" required>
                       <option value="">Por favor selecciona</option>
                       <option value="Identidad">Identidad</option>
                       <option value="Carné de recidencia">Carné de recidencia</option>
@@ -248,45 +255,45 @@
                     </select>
                   </div>
                   <div class="form-group col-md-3">
-                    <label for="RL_NID">No. Identificación:</label>
-                    <input type="text" class="form-control" id="RL_NID" name="RL_NID">
+                    <label for="RL_NumeroID">No. Identificación:</label>
+                    <input type="text" class="form-control" id="RL_NumeroID" name="RL_NumeroID">
                   </div>
                   <div class="form-group col-md-3">
-                    <label for="RL_EmailP">Correo Electrónico Personal:</label>
-                    <input type="text" class="form-control" id="RL_EmailP" name="RL_EmailP">
+                    <label for="RL_EmailPersonal">Correo Electrónico Personal:</label>
+                    <input type="text" class="form-control" id="RL_EmailPersonal" name="RL_EmailPersonal">
                   </div>
                   <div class="form-group col-md-3">
-                    <label for="RL_EmailL">Correo Electrónico Laboral:</label>
-                    <input type="text" class="form-control" id="RL_EmailL" name="RL_EmailL">
+                    <label for="RL_EmailLaboral">Correo Electrónico Laboral:</label>
+                    <input type="text" class="form-control" id="RL_EmailLaboral" name="RL_EmailLaboral">
                   </div>
                 </div>
-                <hr/><p class="centrado"><strong>CONTACTO DE LA EMPRESA PARA ENVIO  DE INFORMACION Y PLANILLAS</strong><hr/><p>
+                <hr/><p class="centrado"><strong>CONTACTO DE LA EMPRESA PARA ENVIO  DE INFORMACIÓN Y PLANILLAS</strong><hr/><p>
                 <div class="form-row">
                   <div class="form-group col-md-4">
-                    <label for="CEPEIP_Nombre">Nombre:</label>
-                    <input type="text" class="form-control" id="CEPEIP_Nombre" name="CEPEIP_Nombre" required>
+                    <label for="CE_Nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="CE_Nombre" name="CE_Nombre" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="CEPEIP_Cargo">Cargo:</label>
-                    <input type="text" class="form-control" id="CEPEIP_Cargo" name="CEPEIP_Cargo" required>
+                    <label for="CE_Cargo">Cargo:</label>
+                    <input type="text" class="form-control" id="CE_Cargo" name="CE_Cargo" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="CEPEIP_NCel">No. Celular:</label>
-                    <input type="text" class="form-control" id="CEPEIP_NCel" name="CEPEIP_NCel" required>
+                    <label for="CE_NumeroCel">No. Celular:</label>
+                    <input type="text" class="form-control" id="CE_NumeroCel" name="CE_NumeroCel" required>
                   </div>
                 </div>                            
                 <div class="form-row">
                   <div class="form-group col-md-4">
-                    <label for="CEPEIP_NTelF">No. Tel Fijo:</label>
-                    <input type="text" class="form-control" id="CEPEIP_NTelF" name="CEPEIP_NTelF">
+                    <label for="CE_NumeroTelF">No. Tel Fijo:</label>
+                    <input type="text" class="form-control" id="CE_NumeroTelF" name="CE_NumeroTelF">
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="CEPEIP_Email">Correo Electrónico:</label>
-                    <input type="text" class="form-control" id="CEPEIP_Email" name="CEPEIP_Email" required>
+                    <label for="CE_Email">Correo Electrónico:</label>
+                    <input type="text" class="form-control" id="CE_Email" name="CE_Email" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="CEPEIP_MYA">Mes y año de primer planilla:</label>
-                    <input type="text" class="form-control" id="CEPEIP_MYA" name="CEPEIP_MYA">
+                    <label for="CE_MesYAñoPrimerPlanilla">Mes y año de primer planilla:</label>
+                    <input type="text" class="form-control" id="CE_MesYAñoPrimerPlanilla" name="CE_MesYAñoPrimerPlanilla">
                   </div>
                 </div>  
                 <hr/><p class="centrado"><strong>INFORMACIÓN DE LA CONSTITUCIÓN DE LA EMPRESA</strong><hr/><p>
@@ -296,82 +303,82 @@
                     <input type="text" class="form-control" id="ICE_Pais" name="ICE_Pais" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="ICE_NEscr">No. de escritura:</label>
-                    <input type="text" class="form-control" id="ICE_NEscr" name="ICE_NEscr" required>
+                    <label for="ICE_NumeroEscritura">No. de escritura:</label>
+                    <input type="text" class="form-control" id="ICE_NumeroEscritura" name="ICE_NumeroEscritura" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="ICE_NIR">No. de inscripción de registro:</label>
-                    <input type="text" class="form-control" id="ICE_NIR" name="ICE_NIR" required>
+                    <label for="ICE_NumeroInscripcionReg">No. de inscripción de registro:</label>
+                    <input type="text" class="form-control" id="ICE_NumeroInscripcionReg" name="ICE_NumeroInscripcionReg" required>
                   </div>
                 </div>                
                 <p><strong>Camara de Comercio:</strong>            
                 <div class="form-row">
                   <div class="form-group col-md-4">
-                    <label for="ICE_NI">No. De inscripción:</label>
-                    <input type="text" class="form-control" id="ICE_NI" name="ICE_NI">
+                    <label for="ICE_CC_NumeroInscripcion">No. De inscripción:</label>
+                    <input type="text" class="form-control" id="ICE_CC_NumeroInscripcion" name="ICE_CC_NumeroInscripcion">
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="ICE_FI">Fecha de inscripción:</label>
-                    <input type="date" class="form-control" id="ICE_FI" name="ICE_FI">
+                    <label for="ICE_CC_FechaInscripcion">Fecha de inscripción:</label>
+                    <input type="date" class="form-control" id="ICE_CC_FechaInscripcion" name="ICE_CC_FechaInscripcion">
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="ICE_NT">No. De Tomo:</label>
-                    <input type="text" class="form-control" id="ICE_NT" name="ICE_NT">
+                    <label for="ICE_CC_NumeroTomo">No. De Tomo:</label>
+                    <input type="text" class="form-control" id="ICE_CC_NumeroTomo" name="ICE_CC_NumeroTomo">
                   </div>
                 </div>
                 <p><strong>Instituto de la propiedad:</strong>            
                 <div class="form-row">
                   <div class="form-group col-md-4">
-                    <label for="ICE_NI2">No. De inscripción:</label>
-                    <input type="text" class="form-control" id="ICE_NI2" name="ICE_NI2">
+                    <label for="ICE_IP_NumeroInscripcion">No. De inscripción:</label>
+                    <input type="text" class="form-control" id="ICE_IP_NumeroInscripcion" name="ICE_IP_NumeroInscripcion">
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="ICE_FI2">Fecha de inscripción:</label>
-                    <input type="date" class="form-control" id="ICE_FI2" name="ICE_FI2">
+                    <label for="ICE_IP_FechaInscripcion">Fecha de inscripción:</label>
+                    <input type="date" class="form-control" id="ICE_IP_FechaInscripcion" name="ICE_IP_FechaInscripcion">
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="ICE_NT2">No. De Tomo/Folio/Matrícula:</label>
-                    <input type="text" class="form-control" id="ICE_NT2" name="ICE_NT2">
+                    <label for="ICE_IP_NumeroTomo">No. De Tomo/Folio/Matrícula:</label>
+                    <input type="text" class="form-control" id="ICE_IP_NumeroTomo" name="ICE_IP_NumeroTomo">
                   </div>
                 </div>                 
                 <div class="form-row">
                   <div class="form-group col-md-4">
-                    <label for="ICE_FS">Finalidad Social:</label>
-                    <input type="text" class="form-control" id="ICE_FS" name="ICE_FS" required>
+                    <label for="ICE_IP_FinalidadSocial">Finalidad Social:</label>
+                    <input type="text" class="form-control" id="ICE_IP_FinalidadSocial" name="ICE_IP_FinalidadSocial" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="ICE_TS">Tipo de sociedad:</label>
-                    <input type="text" class="form-control" id="ICE_TS" name="ICE_TS" required>
+                    <label for="ICE_IP_TipoSociedad">Tipo de sociedad:</label>
+                    <input type="text" class="form-control" id="ICE_IP_TipoSociedad" name="ICE_IP_TipoSociedad" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="ICE_SE">Sector económico al que pertenece:</label>
-                    <input type="text" class="form-control" id="ICE_SE" name="ICE_SE" required>
+                    <label for="ICE_IP_SectorEconomico">Sector económico al que pertenece:</label>
+                    <input type="text" class="form-control" id="ICE_IP_SectorEconomico" name="ICE_IP_SectorEconomico" required>
                   </div>
                 </div> 
                 <div class="form-row">
                   <div class="form-group col-md-4">
-                    <label for="ICE_CS">Capital social total:</label>
-                    <input type="text" class="form-control" id="ICE_CS" name="ICE_CS" required>
+                    <label for="ICE_IP_CapitalSocialTotal">Capital social total:</label>
+                    <input type="text" class="form-control" id="ICE_IP_CapitalSocialTotal" name="ICE_IP_CapitalSocialTotal" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="ICE_NA">No. De accionistas:</label>
-                    <input type="text" class="form-control" id="ICE_NA" name="ICE_NA" required>
+                    <label for="ICE_IP_NumeroAccionistas">No. De accionistas:</label>
+                    <input type="text" class="form-control" id="ICE_IP_NumeroAccionistas" name="ICE_IP_NumeroAccionistas" required>
                   </div>
                   <div class="form-group col-md-4">
                     <label>Tipo de Accionistas:</label>
                     <div class="form-row">
                       <div class="form-group col-md-4">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="ICE_TA" id="ICE_N" value="Normativas">
-                          <label class="form-check-label" for="ICE_N">
+                          <input class="form-check-input" type="radio" name="ICE_IP_TipoAccionistas" id="ICE_IP_Normativas" value="Normativas">
+                          <label class="form-check-label" for="ICE_IP_Normativas">
                             Normativas 
                           </label>
                         </div>
                       </div>
                       <div class="form-group col-md-4">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="ICE_TA" id="ICE_AP" value="Al portador" required>
-                          <label class="form-check-label" for="ICE_AP">
+                          <input class="form-check-input" type="radio" name="ICE_IP_TipoAccionistas" id="ICE_IP_AlPortador" value="Al portador" required>
+                          <label class="form-check-label" for="ICE_IP_AlPortador">
                             Al portador
                           </label>
                         </div>
@@ -382,26 +389,26 @@
                 <hr/><p class="centrado"><strong>INFORMACIÓN SOCIOS DE LA EMPRESA</strong><hr/><p>
                 <div class="form-row">
                   <div class="form-group col-md-4">
-                    <label for="IS_Nombre">Nombre del socio:</label>
-                    <input type="text" class="form-control" id="IS_Nombre" name="IS_Nombre" required>
+                    <label for="IS_NombreSocio">Nombre del socio:</label>
+                    <input type="text" class="form-control" id="IS_NombreSocio" name="IS_NombreSocio" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="IS_NID">No. de identidad:</label>
-                    <input type="text" class="form-control" id="IS_NID" name="IS_NID" required>
+                    <label for="IS_NumeroID">No. de identidad:</label>
+                    <input type="text" class="form-control" id="IS_NumeroID" name="IS_NumeroID" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="IS_PorcP">% de participación:</label>
-                    <input type="text" class="form-control" id="IS_PorcP" name="IS_PorcP" required>
+                    <label for="IS_PorcentajeParticipacion">% de participación:</label>
+                    <input type="text" class="form-control" id="IS_PorcentajeParticipacion" name="IS_PorcentajeParticipacion" required>
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-4">
-                    <label for="IS_Dir">Dirección de domicilio:</label>
-                    <input type="text" class="form-control" id="IS_Dir" name="IS_Dir" required>
+                    <label for="IS_Direccion">Dirección de domicilio:</label>
+                    <input type="text" class="form-control" id="IS_Direccion" name="IS_Direccion" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="IS_NTel">No. tel / celular:</label>
-                    <input type="text" class="form-control" id="IS_NTel" name="IS_NTel" required>
+                    <label for="IS_NumeroTelf">No. tel / celular:</label>
+                    <input type="text" class="form-control" id="IS_NumeroTelf" name="IS_NumeroTelf" required>
                   </div>
                   <div class="form-group col-md-4">
                     <label for="IS_Email">Correo electrónico:</label>
@@ -411,12 +418,12 @@
                 <hr/><p class="centrado"><strong>DIRECCIÓN DE LA EMPRESA</strong><hr/><p>
                 <div class="form-row">
                   <div class="form-group col-md-4">
-                    <label for="DE_Dep">Departamento:</label>
-                    <input type="text" class="form-control" id="DE_Dep" name="DE_Dep" required>
+                    <label for="DE_Departamento">Departamento:</label>
+                    <input type="text" class="form-control" id="DE_Departamento" name="DE_Departamento" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="DE_Mun">Municipio:</label>
-                    <input type="text" class="form-control" id="DE_Mun" name="DE_Mun" required>
+                    <label for="DE_Muninicio">Municipio:</label>
+                    <input type="text" class="form-control" id="DE_Muninicio" name="DE_Muninicio" required>
                   </div>
                   <div class="form-group col-md-4">
                     <label for="DE_Ciudad">Ciudad:</label>
@@ -425,12 +432,12 @@
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-4">
-                    <label for="DE_Col">Barrio / colonia:</label>
-                    <input type="text" class="form-control" id="DE_Col" name="DE_Col">
+                    <label for="DE_Colonia">Barrio / colonia:</label>
+                    <input type="text" class="form-control" id="DE_Colonia" name="DE_Colonia">
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="DE_Av">Avenida:</label>
-                    <input type="text" class="form-control" id="DE_Av" name="DE_Av">
+                    <label for="DE_Avenida">Avenida:</label>
+                    <input type="text" class="form-control" id="DE_Avenida" name="DE_Avenida">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="DE_Calle">Calle:</label>
@@ -453,115 +460,218 @@
                 </div> 
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="DE_APos">Apdo. postal:</label>
-                    <input type="text" class="form-control" id="DE_APos" name="DE_APos">
+                    <label for="DE_APdoPostal">Apdo. postal:</label>
+                    <input type="text" class="form-control" id="DE_APdoPostal" name="DE_APdoPostal">
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="DE_Ref">Otras referencias:</label>
-                    <input type="text" class="form-control" id="DE_Ref" name="DE_Ref" required>
+                    <label for="DE_OtrasReferencias">Otras referencias:</label>
+                    <input type="text" class="form-control" id="DE_OtrasReferencias" name="DE_OtrasReferencias" required>
                   </div>
                 </div>   
                 <hr/><p class="centrado"><strong>SUCURSALES Y AGENCIAS</strong><hr/><p>
                 <div class="form-row">
                   <div class="form-group col-md-3">
-                    <label for="inputNombre2">Sucursal:</label>
-                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                    <label for="SA_Sucursal">Sucursal:</label>
+                    <input type="text" class="form-control" id="SA_Sucursal" name="SA_Sucursal" required>
                   </div>
                   <div class="form-group col-md-2">
-                    <label for="inputNombre1">No. Patronal IHSS:</label>
-                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                    <label for="SA_NumPatronal_IHSS">No. Patronal IHSS:</label>
+                    <input type="text" class="form-control" id="SA_NumPatronal_IHSS" name="pSA_NumPatronal_IHSS" required>
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="inputNombre2">Dirección:</label>
-                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
+                    <label for="SA_Direccion">Dirección:</label>
+                    <input type="text" class="form-control" id="SA_Direccion" name="seSA_Direccion" rquired>
                   </div>
                   <div class="form-group col-md-3">
-                    <label for="inputNombre2">No. de teléfono:</label>
-                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
-                  </div>
-                </div>
-                <hr/><p class="centrado"><strong>PRINCIPALES CIENTES</strong><hr/><p>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="inputNombre2">Nombre de la empresa:</label>
-                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputNombre1">Rubro:</label>
-                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputNombre2">Contacto:</label>
-                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="inputNombre2">Dirección de referencia:</label>
-                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputNombre1">No. De teléfono:</label>
-                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputNombre2">Fecha de inicio de relación:</label>
-                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
-                  </div>
-                </div>
-                <hr/><p class="centrado"><strong>REFERENCIAS BANCARIAS / COMERCIALES</strong><hr/><p>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="inputNombre2">Institución de referencia:</label>
-                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputNombre1">Tipo de referencia:</label>
-                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputNombre2">Fecha de inicio de relación:</label>
-                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
-                  </div>
-                </div>
-                <hr/><p class="centrado"><strong>REFERENCIAS DE PROVEEDORES DE LA EMPRESA</strong><hr/><p>
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="inputNombre2">Nombre de la Empresa:</label>
-                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputNombre1">Rubro:</label>
-                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputNombre2">Contacto:</label>
-                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-7">
-                    <label for="inputNombre2">Dirección de referencia:</label>
-                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
-                  </div>
-                  <div class="form-group col-md-5">
-                    <label for="inputNombre1">No. De teléfono:</label>
-                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-3">
-                    <label for="inputNombre2">Fecha de inicio de relación:</label>
-                    <input type="text" class="form-control" id="inputNombre2" name="segundo_nombre">
-                  </div>
-                  <div class="form-group col-md-9">
-                    <label for="inputNombre1">Lugar y fecha de la Inscripcion :</label>
-                    <input type="text" class="form-control" id="inputNombre1" name="primer_nombre" required>
+                    <label for="SA_NumTlf">No. de teléfono:</label>
+                    <input type="text" class="form-control" id="SA_NumTlf" name="SA_NumTlf" rquired>
                   </div>
                 </div>
               </div>
               <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" style="margin: 1px 10px 0px;">
-                
+                <hr/><p class="centrado"><strong>PRINCIPALES CIENTES</strong><hr/><p>
+                <div id="cliente1">
+                  <hr/><p><strong id="TituloCliente">Cliente 1:</strong><hr/><p>
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="PC_NombreEmpresa">Nombre de la empresa:</label>
+                      <input type="text" class="form-control" id="PC_NombreEmpresa" name="PC_NombreEmpresa" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="PC_Rubro">Rubro:</label>
+                      <input type="text" class="form-control" id="PC_Rubro" name="PC_Rubro">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="PC_Contacto">Contacto:</label>
+                      <input type="text" class="form-control" id="PC_Contacto" name="PC_Contacto">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="PC_DirReferencia">Dirección de referencia:</label>
+                      <input type="text" class="form-control" id="PC_DirReferencia" name="PC_DirReferencia">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="PC_NumTlf">No. De teléfono:</label>
+                      <input type="text" class="form-control" id="PC_NumTlf" name="PC_NumTlf">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="PC_FechaRelacion">Fecha de inicio de relación:</label>
+                      <input type="text" class="form-control" id="PC_FechaRelacion" name="PC_FechaRelacion">
+                    </div>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-success btn-xs" onclick="nuevo_cliente()">
+                 Añadir clientes
+                </button>
+                <div id="adicionales"></div>
+
+                <script type="text/javascript">
+                  var orden=1;
+
+                  function nuevo_cliente() {
+                    orden=orden+1;
+
+                    var template = $("#cliente1").html();
+                    var html = Mustache.render(template);
+                    var y = document.createElement("DIV");
+                    y.setAttribute("id", `adicional_${orden}`);
+                    document.getElementById('adicionales').appendChild(y);
+                    $(`#adicional_${orden}`).append(html);
+                    
+                    $("#adicional_"+orden + " #TituloCliente").attr({"id": `TituloCliente${orden}`});
+                    var titulo = document.getElementById('TituloCliente'+orden);
+                    titulo.innerHTML = 'Cliente '+orden;
+
+
+                    $("#adicional_"+orden + " #PC_NombreEmpresa").attr({"id": `PC_NombreEmpresa${orden}`, "name": `PC_NombreEmpresa${orden}`});
+                    $("#adicional_"+orden + " #PC_Rubro").attr({"id": `PC_Rubro${orden}`, "name": `PC_Rubro${orden}`});
+                    $("#adicional_"+orden + " #PC_Contacto").attr({"id": `PC_Contacto${orden}`, "name": `PC_Contacto${orden}`});
+                    $("#adicional_"+orden + " #PC_DirReferencia").attr({"id": `PC_DirReferencia${orden}`, "name": `PC_DirReferencia${orden}`});
+                    $("#adicional_"+orden + " #PC_NumTlf").attr({"id": `PC_NumTlf${orden}`, "name": `PC_NumTlf${orden}`});
+                    $("#adicional_"+orden + " #PC_FechaRelacion").attr({"id": `PC_FechaRelacion${orden}`, "name": `PC_FechaRelacion${orden}`});
+                    $("#adicional_"+orden + " label[class=error]").remove();
+                  }
+                </script>
+
+                <hr/><p class="centrado"><strong>REFERENCIAS BANCARIAS / COMERCIALES</strong><hr/><p>
+                <div id="Ref_bancaria1">
+                  <hr/><p><strong id="TituloRefBancaria">Referencia 1:</strong><hr/><p>
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="RB_InstitucionReferencia">Institución de referencia:</label>
+                      <input type="text" class="form-control" id="RB_InstitucionReferencia" name="RB_InstitucionReferencia" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="RB_TipoReferencia">Tipo de referencia:</label>
+                      <input type="text" class="form-control" id="RB_TipoReferencia" name="RB_TipoReferencia">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="RB_FechaRelacion">Fecha de inicio de relación:</label>
+                      <input type="date" class="form-control" id="RB_FechaRelacion" name="RB_FechaRelacion">
+                    </div>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-success btn-xs" onclick="nueva_ReferenciaBancaria()">
+                 Añadir Referencia Bancaria
+                </button>
+                <div id="adicionales_RB"></div>
+
+                <script type="text/javascript">
+                  var orden_RB=1;
+
+                  function nueva_ReferenciaBancaria() {
+                    orden_RB=orden_RB+1;
+
+                    var template = $("#Ref_bancaria1").html();
+                    var html = Mustache.render(template);
+                    var y = document.createElement("DIV");
+                    y.setAttribute("id", `adicional_RB_${orden_RB}`);
+                    document.getElementById('adicionales_RB').appendChild(y);
+                    $(`#adicional_RB_${orden_RB}`).append(html);
+                    
+                    $("#adicional_RB_"+orden_RB + " #TituloRefBancaria").attr({"id": `TituloRefBancaria${orden_RB}`});
+                    var titulo = document.getElementById('TituloRefBancaria'+orden_RB);
+                    titulo.innerHTML = 'Referencia '+orden_RB;
+
+
+                    $("#adicional_RB_"+orden_RB + " #RB_InstitucionReferencia").attr({"id": `RB_InstitucionReferencia${orden_RB}`, "name": `RB_InstitucionReferencia${orden_RB}`});
+                    $("#adicional_RB_"+orden_RB + " #RB_TipoReferencia").attr({"id": `RB_TipoReferencia${orden_RB}`, "name": `RB_TipoReferencia${orden_RB}`});
+                    $("#adicional_RB_"+orden_RB + " #RB_FechaRelacion").attr({"id": `RB_FechaRelacion${orden_RB}`, "name": `RB_FechaRelacion${orden_RB}`});
+                    $("#adicional_RB_"+orden_RB + " label[class=error]").remove();
+                  }
+                </script>
+                <hr/><p class="centrado"><strong>REFERENCIAS DE PROVEEDORES DE LA EMPRESA</strong><hr/><p>
+                <div id="Ref_Proveedores">
+                  <hr/><p><strong id="TituloRefProveedores">Referencia 1:</strong><hr/><p>
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="RP_NombreEmpresa">Nombre de la Empresa:</label>
+                      <input type="text" class="form-control" id="RP_NombreEmpresa" name="RP_NombreEmpresa" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="RP_Rubro">Rubro:</label>
+                      <input type="text" class="form-control" id="RP_Rubro" name="RP_Rubro" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="RP_Contacto">Contacto:</label>
+                      <input type="text" class="form-control" id="RP_Contacto" name="RP_Contacto" required>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-7">
+                      <label for="RP_DireccionReferencia">Dirección de referencia:</label>
+                      <input type="text" class="form-control" id="RP_DireccionReferencia" name="RP_DireccionReferencia">
+                    </div>
+                    <div class="form-group col-md-5">
+                      <label for="RP_NumTlf">No. De teléfono:</label>
+                      <input type="text" class="form-control" id="RP_NumTlf" name="RP_NumTlf">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-3">
+                      <label for="RP_FechaRelacion">Fecha de inicio de relación:</label>
+                      <input type="text" class="form-control" id="RP_FechaRelacion" name="RP_FechaRelacion">
+                    </div>
+                    <div class="form-group col-md-9">
+                      <label for="RP_LugaryFechaInscripcion">Lugar y fecha de la Inscripción :</label>
+                      <input type="text" class="form-control" id="RP_LugaryFechaInscripcion" name="RP_LugaryFechaInscripcion">
+                    </div>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-success btn-xs" onclick="nueva_ReferenciaProveedores()">
+                 Añadir Referencia de Proveedores
+                </button>
+                <div id="adicionales_RP"></div>
+
+                <script type="text/javascript">
+                  var orden_RP=1;
+
+                  function nueva_ReferenciaProveedores() {
+                    orden_RP=orden_RP+1;
+
+                    var template = $("#Ref_Proveedores").html();
+                    var html = Mustache.render(template);
+                    var y = document.createElement("DIV");
+                    y.setAttribute("id", `adicional_RP_${orden_RP}`);
+                    document.getElementById('adicionales_RP').appendChild(y);
+                    $(`#adicional_RP_${orden_RP}`).append(html);
+                    
+                    $("#adicional_RP_"+orden_RP + " #TituloRefProveedores").attr({"id": `TituloRefProveedores${orden_RP}`});
+                    var titulo = document.getElementById('TituloRefProveedores'+orden_RP);
+                    titulo.innerHTML = 'Referencia '+orden_RP;
+
+
+                    $("#adicional_RP_"+orden_RP + " #RP_NombreEmpresa").attr({"id": `RP_NombreEmpresa${orden_RP}`, "name": `RP_NombreEmpresa${orden_RP}`});
+                    $("#adicional_RP_"+orden_RP + " #RP_Rubro").attr({"id": `RP_Rubro${orden_RP}`, "name": `RP_Rubro${orden_RP}`});
+                    $("#adicional_RP_"+orden_RP + " #RP_Contacto").attr({"id": `RP_Contacto${orden_RP}`, "name": `RP_Contacto${orden_RP}`});
+                    $("#adicional_RP_"+orden_RP + " #RP_DireccionReferencia").attr({"id": `RP_DireccionReferencia${orden_RP}`, "name": `RP_DireccionReferencia${orden_RP}`});
+                    $("#adicional_RP_"+orden_RP + " #RP_NumTlf").attr({"id": `RP_NumTlf${orden_RP}`, "name": `RP_NumTlf${orden_RP}`});
+                    $("#adicional_RP_"+orden_RP + " #RP_FechaRelacion").attr({"id": `RP_FechaRelacion${orden_RP}`, "name": `RP_FechaRelacion${orden_RP}`});
+                    $("#adicional_RP_"+orden_RP + " #RP_LugaryFechaInscripcion").attr({"id": `RP_LugaryFechaInscripcion${orden_RP}`, "name": `RP_LugaryFechaInscripcion${orden_RP}`});
+                    $("#adicional_RP_"+orden_RP + " label[class=error]").remove();
+                  }
+                </script>
               </div>
               <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" style="margin: 1px 10px 0px;">
               
